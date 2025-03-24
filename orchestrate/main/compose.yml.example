@@ -1,0 +1,46 @@
+name: nestjs-fastify-gql-api
+
+networks:
+  default:
+    driver: ${NETWORKS_DRIVER:-local}
+  bl-net:
+    external: true
+
+# volumes:
+#   nestjs-fastify-gql-api-node-modules:
+#     driver: local
+#     driver_opts:
+#       type: none
+#       device: ${DOCKER_VOLUME_APP_ROOT_DIR:-../../source/main}/node_modules
+#       o: bind
+
+services:
+  app:
+    container_name: nestjs-fastify-gql-api
+    build:
+      context: ${DOCKER_BUILD_CONTEXT_DIR:-../../}
+      dockerfile: orchestrate/main/Dockerfile
+      args:
+        - APP_PORT=${APP_PORT:-3100}
+        - HTTP_PROXY=${APP_HTTP_PROXY:-}
+        - HTTPS_PROXY=${APP_HTTPS_PROXY:-}
+        - NO_PROXY=${APP_NO_PROXY:-}
+        - NODE_ENV=${NODE_ENV:-development}
+    command: ["yarn", "start:dev"]
+    restart: always
+    ports:
+      - ${HOST_PORT:-3100}:${APP_PORT:-3100}
+    volumes:
+      - /app/source/node_modules
+      - ${DOCKER_VOLUME_APP_ROOT_DIR:-../../source/main}:/app/source
+    env_file:
+      - .env
+    user: "5001" # Run the container with user 5001
+    group_add:
+      - "1001" # Add the host user group (GID 1000) to the container
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      bl-net:
+        aliases:
+          - nestjs-fastify-gql-api-net

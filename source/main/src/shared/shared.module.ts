@@ -1,12 +1,12 @@
 import { Module } from "@nestjs/common";
-import { LikeService } from "./services/like.service";
-import { PrismaService } from "src/prisma.service";
-import { ArticleService } from "./services/article.service";
-import { CategoryService } from "./services/category.service";
-import { CommentService } from "./services/comment.service";
-import { PermissionService } from "./services/permission.service";
-import { RoleService } from "./services/role.service";
-import { UserService } from "./services/user.service";
+import { LikeService } from "@shared/services/like.service";
+import { PrismaService } from "@/prisma.service";
+import { ArticleService } from "@shared/services/article.service";
+import { CategoryService } from "@shared/services/category.service";
+import { CommentService } from "@shared/services/comment.service";
+import { PermissionService } from "@shared/services/permission.service";
+import { RoleService } from "@shared/services/role.service";
+import { UserService } from "@shared/services/user.service";
 import { JwtModule } from "@nestjs/jwt";
 
 @Module({

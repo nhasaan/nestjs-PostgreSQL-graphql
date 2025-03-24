@@ -1,0 +1,3480 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AffectedRows {
+  count: Int!
+}
+
+type AggregateArticle {
+  _avg: ArticleAvgAggregate
+  _count: ArticleCountAggregate
+  _max: ArticleMaxAggregate
+  _min: ArticleMinAggregate
+  _sum: ArticleSumAggregate
+}
+
+type AggregateCategory {
+  _avg: CategoryAvgAggregate
+  _count: CategoryCountAggregate
+  _max: CategoryMaxAggregate
+  _min: CategoryMinAggregate
+  _sum: CategorySumAggregate
+}
+
+type AggregateComment {
+  _avg: CommentAvgAggregate
+  _count: CommentCountAggregate
+  _max: CommentMaxAggregate
+  _min: CommentMinAggregate
+  _sum: CommentSumAggregate
+}
+
+type AggregateLike {
+  _avg: LikeAvgAggregate
+  _count: LikeCountAggregate
+  _max: LikeMaxAggregate
+  _min: LikeMinAggregate
+  _sum: LikeSumAggregate
+}
+
+type AggregatePermission {
+  _avg: PermissionAvgAggregate
+  _count: PermissionCountAggregate
+  _max: PermissionMaxAggregate
+  _min: PermissionMinAggregate
+  _sum: PermissionSumAggregate
+}
+
+type AggregateRole {
+  _avg: RoleAvgAggregate
+  _count: RoleCountAggregate
+  _max: RoleMaxAggregate
+  _min: RoleMinAggregate
+  _sum: RoleSumAggregate
+}
+
+type AggregateUser {
+  _avg: UserAvgAggregate
+  _count: UserCountAggregate
+  _max: UserMaxAggregate
+  _min: UserMinAggregate
+  _sum: UserSumAggregate
+}
+
+type Article {
+  ArticleImage: [ArticleImage!]
+  Category: Category!
+  _count: ArticleCount!
+  categoryId: Int!
+  comments: [Comment!]
+  content: String!
+  createdAt: DateTime!
+  id: ID!
+  likes: [Like!]
+  title: String!
+  updatedAt: DateTime!
+  url: String!
+  views: Int!
+}
+
+type ArticleAvgAggregate {
+  categoryId: Float
+  id: Float
+  views: Float
+}
+
+input ArticleAvgAggregateInput {
+  categoryId: Boolean
+  id: Boolean
+  views: Boolean
+}
+
+input ArticleAvgOrderByAggregateInput {
+  categoryId: SortOrder
+  id: SortOrder
+  views: SortOrder
+}
+
+type ArticleCount {
+  ArticleImage: Int!
+  comments: Int!
+  likes: Int!
+}
+
+type ArticleCountAggregate {
+  _all: Int!
+  categoryId: Int!
+  content: Int!
+  createdAt: Int!
+  id: Int!
+  title: Int!
+  updatedAt: Int!
+  url: Int!
+  views: Int!
+}
+
+input ArticleCountAggregateInput {
+  _all: Boolean
+  categoryId: Boolean
+  content: Boolean
+  createdAt: Boolean
+  id: Boolean
+  title: Boolean
+  updatedAt: Boolean
+  url: Boolean
+  views: Boolean
+}
+
+input ArticleCountOrderByAggregateInput {
+  categoryId: SortOrder
+  content: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  title: SortOrder
+  updatedAt: SortOrder
+  url: SortOrder
+  views: SortOrder
+}
+
+input ArticleCreateInput {
+  ArticleImage: ArticleImageCreateNestedManyWithoutArticleInput
+  Category: CategoryCreateNestedOneWithoutArticlesInput!
+  comments: CommentCreateNestedManyWithoutArticleInput
+  content: String!
+  createdAt: DateTime
+  likes: LikeCreateNestedManyWithoutArticleInput
+  title: String!
+  updatedAt: DateTime
+  url: String!
+  views: Int
+}
+
+input ArticleCreateManyCategoryInput {
+  content: String!
+  createdAt: DateTime
+  id: Int
+  title: String!
+  updatedAt: DateTime
+  url: String!
+  views: Int
+}
+
+input ArticleCreateManyCategoryInputEnvelope {
+  data: [ArticleCreateManyCategoryInput!]!
+  skipDuplicates: Boolean
+}
+
+input ArticleCreateManyInput {
+  categoryId: Int!
+  content: String!
+  createdAt: DateTime
+  id: Int
+  title: String!
+  updatedAt: DateTime
+  url: String!
+  views: Int
+}
+
+input ArticleCreateNestedManyWithoutCategoryInput {
+  connect: [ArticleWhereUniqueInput!]
+  connectOrCreate: [ArticleCreateOrConnectWithoutCategoryInput!]
+  create: [ArticleCreateWithoutCategoryInput!]
+  createMany: ArticleCreateManyCategoryInputEnvelope
+}
+
+input ArticleCreateNestedOneWithoutCommentsInput {
+  connect: ArticleWhereUniqueInput
+  connectOrCreate: ArticleCreateOrConnectWithoutCommentsInput
+  create: ArticleCreateWithoutCommentsInput
+}
+
+input ArticleCreateNestedOneWithoutLikesInput {
+  connect: ArticleWhereUniqueInput
+  connectOrCreate: ArticleCreateOrConnectWithoutLikesInput
+  create: ArticleCreateWithoutLikesInput
+}
+
+input ArticleCreateOrConnectWithoutCategoryInput {
+  create: ArticleCreateWithoutCategoryInput!
+  where: ArticleWhereUniqueInput!
+}
+
+input ArticleCreateOrConnectWithoutCommentsInput {
+  create: ArticleCreateWithoutCommentsInput!
+  where: ArticleWhereUniqueInput!
+}
+
+input ArticleCreateOrConnectWithoutLikesInput {
+  create: ArticleCreateWithoutLikesInput!
+  where: ArticleWhereUniqueInput!
+}
+
+input ArticleCreateWithoutCategoryInput {
+  ArticleImage: ArticleImageCreateNestedManyWithoutArticleInput
+  comments: CommentCreateNestedManyWithoutArticleInput
+  content: String!
+  createdAt: DateTime
+  likes: LikeCreateNestedManyWithoutArticleInput
+  title: String!
+  updatedAt: DateTime
+  url: String!
+  views: Int
+}
+
+input ArticleCreateWithoutCommentsInput {
+  ArticleImage: ArticleImageCreateNestedManyWithoutArticleInput
+  Category: CategoryCreateNestedOneWithoutArticlesInput!
+  content: String!
+  createdAt: DateTime
+  likes: LikeCreateNestedManyWithoutArticleInput
+  title: String!
+  updatedAt: DateTime
+  url: String!
+  views: Int
+}
+
+input ArticleCreateWithoutLikesInput {
+  ArticleImage: ArticleImageCreateNestedManyWithoutArticleInput
+  Category: CategoryCreateNestedOneWithoutArticlesInput!
+  comments: CommentCreateNestedManyWithoutArticleInput
+  content: String!
+  createdAt: DateTime
+  title: String!
+  updatedAt: DateTime
+  url: String!
+  views: Int
+}
+
+type ArticleGroupBy {
+  _avg: ArticleAvgAggregate
+  _count: ArticleCountAggregate
+  _max: ArticleMaxAggregate
+  _min: ArticleMinAggregate
+  _sum: ArticleSumAggregate
+  categoryId: Int!
+  content: String!
+  createdAt: DateTime!
+  id: Int!
+  title: String!
+  updatedAt: DateTime!
+  url: String!
+  views: Int!
+}
+
+type ArticleImage {
+  article: Article!
+  articleId: Int!
+  createdAt: DateTime!
+  id: ID!
+  imageUrl: String!
+  updatedAt: DateTime!
+}
+
+input ArticleImageCreateManyArticleInput {
+  createdAt: DateTime
+  id: Int
+  imageUrl: String!
+  updatedAt: DateTime
+}
+
+input ArticleImageCreateManyArticleInputEnvelope {
+  data: [ArticleImageCreateManyArticleInput!]!
+  skipDuplicates: Boolean
+}
+
+input ArticleImageCreateNestedManyWithoutArticleInput {
+  connect: [ArticleImageWhereUniqueInput!]
+  connectOrCreate: [ArticleImageCreateOrConnectWithoutArticleInput!]
+  create: [ArticleImageCreateWithoutArticleInput!]
+  createMany: ArticleImageCreateManyArticleInputEnvelope
+}
+
+input ArticleImageCreateOrConnectWithoutArticleInput {
+  create: ArticleImageCreateWithoutArticleInput!
+  where: ArticleImageWhereUniqueInput!
+}
+
+input ArticleImageCreateWithoutArticleInput {
+  createdAt: DateTime
+  imageUrl: String!
+  updatedAt: DateTime
+}
+
+input ArticleImageListRelationFilter {
+  every: ArticleImageWhereInput
+  none: ArticleImageWhereInput
+  some: ArticleImageWhereInput
+}
+
+input ArticleImageOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input ArticleImageScalarWhereInput {
+  AND: [ArticleImageScalarWhereInput!]
+  NOT: [ArticleImageScalarWhereInput!]
+  OR: [ArticleImageScalarWhereInput!]
+  articleId: IntFilter
+  createdAt: DateTimeFilter
+  id: IntFilter
+  imageUrl: StringFilter
+  updatedAt: DateTimeFilter
+}
+
+input ArticleImageUpdateManyMutationInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  imageUrl: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input ArticleImageUpdateManyWithWhereWithoutArticleInput {
+  data: ArticleImageUpdateManyMutationInput!
+  where: ArticleImageScalarWhereInput!
+}
+
+input ArticleImageUpdateManyWithoutArticleNestedInput {
+  connect: [ArticleImageWhereUniqueInput!]
+  connectOrCreate: [ArticleImageCreateOrConnectWithoutArticleInput!]
+  create: [ArticleImageCreateWithoutArticleInput!]
+  createMany: ArticleImageCreateManyArticleInputEnvelope
+  delete: [ArticleImageWhereUniqueInput!]
+  deleteMany: [ArticleImageScalarWhereInput!]
+  disconnect: [ArticleImageWhereUniqueInput!]
+  set: [ArticleImageWhereUniqueInput!]
+  update: [ArticleImageUpdateWithWhereUniqueWithoutArticleInput!]
+  updateMany: [ArticleImageUpdateManyWithWhereWithoutArticleInput!]
+  upsert: [ArticleImageUpsertWithWhereUniqueWithoutArticleInput!]
+}
+
+input ArticleImageUpdateWithWhereUniqueWithoutArticleInput {
+  data: ArticleImageUpdateWithoutArticleInput!
+  where: ArticleImageWhereUniqueInput!
+}
+
+input ArticleImageUpdateWithoutArticleInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  imageUrl: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input ArticleImageUpsertWithWhereUniqueWithoutArticleInput {
+  create: ArticleImageCreateWithoutArticleInput!
+  update: ArticleImageUpdateWithoutArticleInput!
+  where: ArticleImageWhereUniqueInput!
+}
+
+input ArticleImageWhereInput {
+  AND: [ArticleImageWhereInput!]
+  NOT: [ArticleImageWhereInput!]
+  OR: [ArticleImageWhereInput!]
+  article: ArticleRelationFilter
+  articleId: IntFilter
+  createdAt: DateTimeFilter
+  id: IntFilter
+  imageUrl: StringFilter
+  updatedAt: DateTimeFilter
+}
+
+input ArticleImageWhereUniqueInput {
+  AND: [ArticleImageWhereInput!]
+  NOT: [ArticleImageWhereInput!]
+  OR: [ArticleImageWhereInput!]
+  article: ArticleRelationFilter
+  articleId: IntFilter
+  createdAt: DateTimeFilter
+  id: Int
+  imageUrl: StringFilter
+  updatedAt: DateTimeFilter
+}
+
+input ArticleListRelationFilter {
+  every: ArticleWhereInput
+  none: ArticleWhereInput
+  some: ArticleWhereInput
+}
+
+type ArticleMaxAggregate {
+  categoryId: Int
+  content: String
+  createdAt: DateTime
+  id: Int
+  title: String
+  updatedAt: DateTime
+  url: String
+  views: Int
+}
+
+input ArticleMaxAggregateInput {
+  categoryId: Boolean
+  content: Boolean
+  createdAt: Boolean
+  id: Boolean
+  title: Boolean
+  updatedAt: Boolean
+  url: Boolean
+  views: Boolean
+}
+
+input ArticleMaxOrderByAggregateInput {
+  categoryId: SortOrder
+  content: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  title: SortOrder
+  updatedAt: SortOrder
+  url: SortOrder
+  views: SortOrder
+}
+
+type ArticleMinAggregate {
+  categoryId: Int
+  content: String
+  createdAt: DateTime
+  id: Int
+  title: String
+  updatedAt: DateTime
+  url: String
+  views: Int
+}
+
+input ArticleMinAggregateInput {
+  categoryId: Boolean
+  content: Boolean
+  createdAt: Boolean
+  id: Boolean
+  title: Boolean
+  updatedAt: Boolean
+  url: Boolean
+  views: Boolean
+}
+
+input ArticleMinOrderByAggregateInput {
+  categoryId: SortOrder
+  content: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  title: SortOrder
+  updatedAt: SortOrder
+  url: SortOrder
+  views: SortOrder
+}
+
+input ArticleOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input ArticleOrderByWithAggregationInput {
+  _avg: ArticleAvgOrderByAggregateInput
+  _count: ArticleCountOrderByAggregateInput
+  _max: ArticleMaxOrderByAggregateInput
+  _min: ArticleMinOrderByAggregateInput
+  _sum: ArticleSumOrderByAggregateInput
+  categoryId: SortOrder
+  content: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  title: SortOrder
+  updatedAt: SortOrder
+  url: SortOrder
+  views: SortOrder
+}
+
+input ArticleOrderByWithRelationInput {
+  ArticleImage: ArticleImageOrderByRelationAggregateInput
+  Category: CategoryOrderByWithRelationInput
+  categoryId: SortOrder
+  comments: CommentOrderByRelationAggregateInput
+  content: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  likes: LikeOrderByRelationAggregateInput
+  title: SortOrder
+  updatedAt: SortOrder
+  url: SortOrder
+  views: SortOrder
+}
+
+input ArticleRelationFilter {
+  is: ArticleWhereInput
+  isNot: ArticleWhereInput
+}
+
+enum ArticleScalarFieldEnum {
+  categoryId
+  content
+  createdAt
+  id
+  title
+  updatedAt
+  url
+  views
+}
+
+input ArticleScalarWhereInput {
+  AND: [ArticleScalarWhereInput!]
+  NOT: [ArticleScalarWhereInput!]
+  OR: [ArticleScalarWhereInput!]
+  categoryId: IntFilter
+  content: StringFilter
+  createdAt: DateTimeFilter
+  id: IntFilter
+  title: StringFilter
+  updatedAt: DateTimeFilter
+  url: StringFilter
+  views: IntFilter
+}
+
+input ArticleScalarWhereWithAggregatesInput {
+  AND: [ArticleScalarWhereWithAggregatesInput!]
+  NOT: [ArticleScalarWhereWithAggregatesInput!]
+  OR: [ArticleScalarWhereWithAggregatesInput!]
+  categoryId: IntWithAggregatesFilter
+  content: StringWithAggregatesFilter
+  createdAt: DateTimeWithAggregatesFilter
+  id: IntWithAggregatesFilter
+  title: StringWithAggregatesFilter
+  updatedAt: DateTimeWithAggregatesFilter
+  url: StringWithAggregatesFilter
+  views: IntWithAggregatesFilter
+}
+
+type ArticleSumAggregate {
+  categoryId: Int
+  id: Int
+  views: Int
+}
+
+input ArticleSumAggregateInput {
+  categoryId: Boolean
+  id: Boolean
+  views: Boolean
+}
+
+input ArticleSumOrderByAggregateInput {
+  categoryId: SortOrder
+  id: SortOrder
+  views: SortOrder
+}
+
+input ArticleUpdateInput {
+  ArticleImage: ArticleImageUpdateManyWithoutArticleNestedInput
+  Category: CategoryUpdateOneRequiredWithoutArticlesNestedInput
+  comments: CommentUpdateManyWithoutArticleNestedInput
+  content: StringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  likes: LikeUpdateManyWithoutArticleNestedInput
+  title: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  url: StringFieldUpdateOperationsInput
+  views: IntFieldUpdateOperationsInput
+}
+
+input ArticleUpdateManyMutationInput {
+  content: StringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  url: StringFieldUpdateOperationsInput
+  views: IntFieldUpdateOperationsInput
+}
+
+input ArticleUpdateManyWithWhereWithoutCategoryInput {
+  data: ArticleUpdateManyMutationInput!
+  where: ArticleScalarWhereInput!
+}
+
+input ArticleUpdateManyWithoutCategoryNestedInput {
+  connect: [ArticleWhereUniqueInput!]
+  connectOrCreate: [ArticleCreateOrConnectWithoutCategoryInput!]
+  create: [ArticleCreateWithoutCategoryInput!]
+  createMany: ArticleCreateManyCategoryInputEnvelope
+  delete: [ArticleWhereUniqueInput!]
+  deleteMany: [ArticleScalarWhereInput!]
+  disconnect: [ArticleWhereUniqueInput!]
+  set: [ArticleWhereUniqueInput!]
+  update: [ArticleUpdateWithWhereUniqueWithoutCategoryInput!]
+  updateMany: [ArticleUpdateManyWithWhereWithoutCategoryInput!]
+  upsert: [ArticleUpsertWithWhereUniqueWithoutCategoryInput!]
+}
+
+input ArticleUpdateOneRequiredWithoutCommentsNestedInput {
+  connect: ArticleWhereUniqueInput
+  connectOrCreate: ArticleCreateOrConnectWithoutCommentsInput
+  create: ArticleCreateWithoutCommentsInput
+  update: ArticleUpdateToOneWithWhereWithoutCommentsInput
+  upsert: ArticleUpsertWithoutCommentsInput
+}
+
+input ArticleUpdateOneRequiredWithoutLikesNestedInput {
+  connect: ArticleWhereUniqueInput
+  connectOrCreate: ArticleCreateOrConnectWithoutLikesInput
+  create: ArticleCreateWithoutLikesInput
+  update: ArticleUpdateToOneWithWhereWithoutLikesInput
+  upsert: ArticleUpsertWithoutLikesInput
+}
+
+input ArticleUpdateToOneWithWhereWithoutCommentsInput {
+  data: ArticleUpdateWithoutCommentsInput!
+  where: ArticleWhereInput
+}
+
+input ArticleUpdateToOneWithWhereWithoutLikesInput {
+  data: ArticleUpdateWithoutLikesInput!
+  where: ArticleWhereInput
+}
+
+input ArticleUpdateWithWhereUniqueWithoutCategoryInput {
+  data: ArticleUpdateWithoutCategoryInput!
+  where: ArticleWhereUniqueInput!
+}
+
+input ArticleUpdateWithoutCategoryInput {
+  ArticleImage: ArticleImageUpdateManyWithoutArticleNestedInput
+  comments: CommentUpdateManyWithoutArticleNestedInput
+  content: StringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  likes: LikeUpdateManyWithoutArticleNestedInput
+  title: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  url: StringFieldUpdateOperationsInput
+  views: IntFieldUpdateOperationsInput
+}
+
+input ArticleUpdateWithoutCommentsInput {
+  ArticleImage: ArticleImageUpdateManyWithoutArticleNestedInput
+  Category: CategoryUpdateOneRequiredWithoutArticlesNestedInput
+  content: StringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  likes: LikeUpdateManyWithoutArticleNestedInput
+  title: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  url: StringFieldUpdateOperationsInput
+  views: IntFieldUpdateOperationsInput
+}
+
+input ArticleUpdateWithoutLikesInput {
+  ArticleImage: ArticleImageUpdateManyWithoutArticleNestedInput
+  Category: CategoryUpdateOneRequiredWithoutArticlesNestedInput
+  comments: CommentUpdateManyWithoutArticleNestedInput
+  content: StringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  url: StringFieldUpdateOperationsInput
+  views: IntFieldUpdateOperationsInput
+}
+
+input ArticleUpsertWithWhereUniqueWithoutCategoryInput {
+  create: ArticleCreateWithoutCategoryInput!
+  update: ArticleUpdateWithoutCategoryInput!
+  where: ArticleWhereUniqueInput!
+}
+
+input ArticleUpsertWithoutCommentsInput {
+  create: ArticleCreateWithoutCommentsInput!
+  update: ArticleUpdateWithoutCommentsInput!
+  where: ArticleWhereInput
+}
+
+input ArticleUpsertWithoutLikesInput {
+  create: ArticleCreateWithoutLikesInput!
+  update: ArticleUpdateWithoutLikesInput!
+  where: ArticleWhereInput
+}
+
+input ArticleWhereInput {
+  AND: [ArticleWhereInput!]
+  ArticleImage: ArticleImageListRelationFilter
+  Category: CategoryRelationFilter
+  NOT: [ArticleWhereInput!]
+  OR: [ArticleWhereInput!]
+  categoryId: IntFilter
+  comments: CommentListRelationFilter
+  content: StringFilter
+  createdAt: DateTimeFilter
+  id: IntFilter
+  likes: LikeListRelationFilter
+  title: StringFilter
+  updatedAt: DateTimeFilter
+  url: StringFilter
+  views: IntFilter
+}
+
+input ArticleWhereUniqueInput {
+  AND: [ArticleWhereInput!]
+  ArticleImage: ArticleImageListRelationFilter
+  Category: CategoryRelationFilter
+  NOT: [ArticleWhereInput!]
+  OR: [ArticleWhereInput!]
+  categoryId: IntFilter
+  comments: CommentListRelationFilter
+  content: StringFilter
+  createdAt: DateTimeFilter
+  id: Int
+  likes: LikeListRelationFilter
+  title: StringFilter
+  updatedAt: DateTimeFilter
+  url: String
+  views: IntFilter
+}
+
+type Category {
+  _count: CategoryCount!
+  articles: [Article!]
+  createdAt: DateTime!
+  id: ID!
+  name: String!
+  updatedAt: DateTime!
+}
+
+type CategoryAvgAggregate {
+  id: Float
+}
+
+input CategoryAvgAggregateInput {
+  id: Boolean
+}
+
+input CategoryAvgOrderByAggregateInput {
+  id: SortOrder
+}
+
+type CategoryCount {
+  articles: Int!
+}
+
+type CategoryCountAggregate {
+  _all: Int!
+  createdAt: Int!
+  id: Int!
+  name: Int!
+  updatedAt: Int!
+}
+
+input CategoryCountAggregateInput {
+  _all: Boolean
+  createdAt: Boolean
+  id: Boolean
+  name: Boolean
+  updatedAt: Boolean
+}
+
+input CategoryCountOrderByAggregateInput {
+  createdAt: SortOrder
+  id: SortOrder
+  name: SortOrder
+  updatedAt: SortOrder
+}
+
+input CategoryCreateInput {
+  articles: ArticleCreateNestedManyWithoutCategoryInput
+  createdAt: DateTime
+  name: String!
+  updatedAt: DateTime
+}
+
+input CategoryCreateManyInput {
+  createdAt: DateTime
+  id: Int
+  name: String!
+  updatedAt: DateTime
+}
+
+input CategoryCreateNestedOneWithoutArticlesInput {
+  connect: CategoryWhereUniqueInput
+  connectOrCreate: CategoryCreateOrConnectWithoutArticlesInput
+  create: CategoryCreateWithoutArticlesInput
+}
+
+input CategoryCreateOrConnectWithoutArticlesInput {
+  create: CategoryCreateWithoutArticlesInput!
+  where: CategoryWhereUniqueInput!
+}
+
+input CategoryCreateWithoutArticlesInput {
+  createdAt: DateTime
+  name: String!
+  updatedAt: DateTime
+}
+
+type CategoryGroupBy {
+  _avg: CategoryAvgAggregate
+  _count: CategoryCountAggregate
+  _max: CategoryMaxAggregate
+  _min: CategoryMinAggregate
+  _sum: CategorySumAggregate
+  createdAt: DateTime!
+  id: Int!
+  name: String!
+  updatedAt: DateTime!
+}
+
+type CategoryMaxAggregate {
+  createdAt: DateTime
+  id: Int
+  name: String
+  updatedAt: DateTime
+}
+
+input CategoryMaxAggregateInput {
+  createdAt: Boolean
+  id: Boolean
+  name: Boolean
+  updatedAt: Boolean
+}
+
+input CategoryMaxOrderByAggregateInput {
+  createdAt: SortOrder
+  id: SortOrder
+  name: SortOrder
+  updatedAt: SortOrder
+}
+
+type CategoryMinAggregate {
+  createdAt: DateTime
+  id: Int
+  name: String
+  updatedAt: DateTime
+}
+
+input CategoryMinAggregateInput {
+  createdAt: Boolean
+  id: Boolean
+  name: Boolean
+  updatedAt: Boolean
+}
+
+input CategoryMinOrderByAggregateInput {
+  createdAt: SortOrder
+  id: SortOrder
+  name: SortOrder
+  updatedAt: SortOrder
+}
+
+input CategoryOrderByWithAggregationInput {
+  _avg: CategoryAvgOrderByAggregateInput
+  _count: CategoryCountOrderByAggregateInput
+  _max: CategoryMaxOrderByAggregateInput
+  _min: CategoryMinOrderByAggregateInput
+  _sum: CategorySumOrderByAggregateInput
+  createdAt: SortOrder
+  id: SortOrder
+  name: SortOrder
+  updatedAt: SortOrder
+}
+
+input CategoryOrderByWithRelationInput {
+  articles: ArticleOrderByRelationAggregateInput
+  createdAt: SortOrder
+  id: SortOrder
+  name: SortOrder
+  updatedAt: SortOrder
+}
+
+input CategoryRelationFilter {
+  is: CategoryWhereInput
+  isNot: CategoryWhereInput
+}
+
+enum CategoryScalarFieldEnum {
+  createdAt
+  id
+  name
+  updatedAt
+}
+
+input CategoryScalarWhereWithAggregatesInput {
+  AND: [CategoryScalarWhereWithAggregatesInput!]
+  NOT: [CategoryScalarWhereWithAggregatesInput!]
+  OR: [CategoryScalarWhereWithAggregatesInput!]
+  createdAt: DateTimeWithAggregatesFilter
+  id: IntWithAggregatesFilter
+  name: StringWithAggregatesFilter
+  updatedAt: DateTimeWithAggregatesFilter
+}
+
+type CategorySumAggregate {
+  id: Int
+}
+
+input CategorySumAggregateInput {
+  id: Boolean
+}
+
+input CategorySumOrderByAggregateInput {
+  id: SortOrder
+}
+
+input CategoryUpdateInput {
+  articles: ArticleUpdateManyWithoutCategoryNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input CategoryUpdateManyMutationInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input CategoryUpdateOneRequiredWithoutArticlesNestedInput {
+  connect: CategoryWhereUniqueInput
+  connectOrCreate: CategoryCreateOrConnectWithoutArticlesInput
+  create: CategoryCreateWithoutArticlesInput
+  update: CategoryUpdateToOneWithWhereWithoutArticlesInput
+  upsert: CategoryUpsertWithoutArticlesInput
+}
+
+input CategoryUpdateToOneWithWhereWithoutArticlesInput {
+  data: CategoryUpdateWithoutArticlesInput!
+  where: CategoryWhereInput
+}
+
+input CategoryUpdateWithoutArticlesInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input CategoryUpsertWithoutArticlesInput {
+  create: CategoryCreateWithoutArticlesInput!
+  update: CategoryUpdateWithoutArticlesInput!
+  where: CategoryWhereInput
+}
+
+input CategoryWhereInput {
+  AND: [CategoryWhereInput!]
+  NOT: [CategoryWhereInput!]
+  OR: [CategoryWhereInput!]
+  articles: ArticleListRelationFilter
+  createdAt: DateTimeFilter
+  id: IntFilter
+  name: StringFilter
+  updatedAt: DateTimeFilter
+}
+
+input CategoryWhereUniqueInput {
+  AND: [CategoryWhereInput!]
+  NOT: [CategoryWhereInput!]
+  OR: [CategoryWhereInput!]
+  articles: ArticleListRelationFilter
+  createdAt: DateTimeFilter
+  id: Int
+  name: String
+  updatedAt: DateTimeFilter
+}
+
+type Comment {
+  article: Article!
+  articleId: Int!
+  createdAt: DateTime!
+  id: ID!
+  text: String!
+  updatedAt: DateTime!
+  user: User!
+  userId: Int!
+}
+
+type CommentAvgAggregate {
+  articleId: Float
+  id: Float
+  userId: Float
+}
+
+input CommentAvgAggregateInput {
+  articleId: Boolean
+  id: Boolean
+  userId: Boolean
+}
+
+input CommentAvgOrderByAggregateInput {
+  articleId: SortOrder
+  id: SortOrder
+  userId: SortOrder
+}
+
+type CommentCountAggregate {
+  _all: Int!
+  articleId: Int!
+  createdAt: Int!
+  id: Int!
+  text: Int!
+  updatedAt: Int!
+  userId: Int!
+}
+
+input CommentCountAggregateInput {
+  _all: Boolean
+  articleId: Boolean
+  createdAt: Boolean
+  id: Boolean
+  text: Boolean
+  updatedAt: Boolean
+  userId: Boolean
+}
+
+input CommentCountOrderByAggregateInput {
+  articleId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  text: SortOrder
+  updatedAt: SortOrder
+  userId: SortOrder
+}
+
+input CommentCreateInput {
+  article: ArticleCreateNestedOneWithoutCommentsInput!
+  createdAt: DateTime
+  text: String!
+  updatedAt: DateTime
+  user: UserCreateNestedOneWithoutCommentsInput!
+}
+
+input CommentCreateManyArticleInput {
+  createdAt: DateTime
+  id: Int
+  text: String!
+  updatedAt: DateTime
+  userId: Int!
+}
+
+input CommentCreateManyArticleInputEnvelope {
+  data: [CommentCreateManyArticleInput!]!
+  skipDuplicates: Boolean
+}
+
+input CommentCreateManyInput {
+  articleId: Int!
+  createdAt: DateTime
+  id: Int
+  text: String!
+  updatedAt: DateTime
+  userId: Int!
+}
+
+input CommentCreateManyUserInput {
+  articleId: Int!
+  createdAt: DateTime
+  id: Int
+  text: String!
+  updatedAt: DateTime
+}
+
+input CommentCreateManyUserInputEnvelope {
+  data: [CommentCreateManyUserInput!]!
+  skipDuplicates: Boolean
+}
+
+input CommentCreateNestedManyWithoutArticleInput {
+  connect: [CommentWhereUniqueInput!]
+  connectOrCreate: [CommentCreateOrConnectWithoutArticleInput!]
+  create: [CommentCreateWithoutArticleInput!]
+  createMany: CommentCreateManyArticleInputEnvelope
+}
+
+input CommentCreateNestedManyWithoutUserInput {
+  connect: [CommentWhereUniqueInput!]
+  connectOrCreate: [CommentCreateOrConnectWithoutUserInput!]
+  create: [CommentCreateWithoutUserInput!]
+  createMany: CommentCreateManyUserInputEnvelope
+}
+
+input CommentCreateOrConnectWithoutArticleInput {
+  create: CommentCreateWithoutArticleInput!
+  where: CommentWhereUniqueInput!
+}
+
+input CommentCreateOrConnectWithoutUserInput {
+  create: CommentCreateWithoutUserInput!
+  where: CommentWhereUniqueInput!
+}
+
+input CommentCreateWithoutArticleInput {
+  createdAt: DateTime
+  text: String!
+  updatedAt: DateTime
+  user: UserCreateNestedOneWithoutCommentsInput!
+}
+
+input CommentCreateWithoutUserInput {
+  article: ArticleCreateNestedOneWithoutCommentsInput!
+  createdAt: DateTime
+  text: String!
+  updatedAt: DateTime
+}
+
+type CommentGroupBy {
+  _avg: CommentAvgAggregate
+  _count: CommentCountAggregate
+  _max: CommentMaxAggregate
+  _min: CommentMinAggregate
+  _sum: CommentSumAggregate
+  articleId: Int!
+  createdAt: DateTime!
+  id: Int!
+  text: String!
+  updatedAt: DateTime!
+  userId: Int!
+}
+
+input CommentListRelationFilter {
+  every: CommentWhereInput
+  none: CommentWhereInput
+  some: CommentWhereInput
+}
+
+type CommentMaxAggregate {
+  articleId: Int
+  createdAt: DateTime
+  id: Int
+  text: String
+  updatedAt: DateTime
+  userId: Int
+}
+
+input CommentMaxAggregateInput {
+  articleId: Boolean
+  createdAt: Boolean
+  id: Boolean
+  text: Boolean
+  updatedAt: Boolean
+  userId: Boolean
+}
+
+input CommentMaxOrderByAggregateInput {
+  articleId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  text: SortOrder
+  updatedAt: SortOrder
+  userId: SortOrder
+}
+
+type CommentMinAggregate {
+  articleId: Int
+  createdAt: DateTime
+  id: Int
+  text: String
+  updatedAt: DateTime
+  userId: Int
+}
+
+input CommentMinAggregateInput {
+  articleId: Boolean
+  createdAt: Boolean
+  id: Boolean
+  text: Boolean
+  updatedAt: Boolean
+  userId: Boolean
+}
+
+input CommentMinOrderByAggregateInput {
+  articleId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  text: SortOrder
+  updatedAt: SortOrder
+  userId: SortOrder
+}
+
+input CommentOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input CommentOrderByWithAggregationInput {
+  _avg: CommentAvgOrderByAggregateInput
+  _count: CommentCountOrderByAggregateInput
+  _max: CommentMaxOrderByAggregateInput
+  _min: CommentMinOrderByAggregateInput
+  _sum: CommentSumOrderByAggregateInput
+  articleId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  text: SortOrder
+  updatedAt: SortOrder
+  userId: SortOrder
+}
+
+input CommentOrderByWithRelationInput {
+  article: ArticleOrderByWithRelationInput
+  articleId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  text: SortOrder
+  updatedAt: SortOrder
+  user: UserOrderByWithRelationInput
+  userId: SortOrder
+}
+
+enum CommentScalarFieldEnum {
+  articleId
+  createdAt
+  id
+  text
+  updatedAt
+  userId
+}
+
+input CommentScalarWhereInput {
+  AND: [CommentScalarWhereInput!]
+  NOT: [CommentScalarWhereInput!]
+  OR: [CommentScalarWhereInput!]
+  articleId: IntFilter
+  createdAt: DateTimeFilter
+  id: IntFilter
+  text: StringFilter
+  updatedAt: DateTimeFilter
+  userId: IntFilter
+}
+
+input CommentScalarWhereWithAggregatesInput {
+  AND: [CommentScalarWhereWithAggregatesInput!]
+  NOT: [CommentScalarWhereWithAggregatesInput!]
+  OR: [CommentScalarWhereWithAggregatesInput!]
+  articleId: IntWithAggregatesFilter
+  createdAt: DateTimeWithAggregatesFilter
+  id: IntWithAggregatesFilter
+  text: StringWithAggregatesFilter
+  updatedAt: DateTimeWithAggregatesFilter
+  userId: IntWithAggregatesFilter
+}
+
+type CommentSumAggregate {
+  articleId: Int
+  id: Int
+  userId: Int
+}
+
+input CommentSumAggregateInput {
+  articleId: Boolean
+  id: Boolean
+  userId: Boolean
+}
+
+input CommentSumOrderByAggregateInput {
+  articleId: SortOrder
+  id: SortOrder
+  userId: SortOrder
+}
+
+input CommentUpdateInput {
+  article: ArticleUpdateOneRequiredWithoutCommentsNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  text: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  user: UserUpdateOneRequiredWithoutCommentsNestedInput
+}
+
+input CommentUpdateManyMutationInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  text: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input CommentUpdateManyWithWhereWithoutArticleInput {
+  data: CommentUpdateManyMutationInput!
+  where: CommentScalarWhereInput!
+}
+
+input CommentUpdateManyWithWhereWithoutUserInput {
+  data: CommentUpdateManyMutationInput!
+  where: CommentScalarWhereInput!
+}
+
+input CommentUpdateManyWithoutArticleNestedInput {
+  connect: [CommentWhereUniqueInput!]
+  connectOrCreate: [CommentCreateOrConnectWithoutArticleInput!]
+  create: [CommentCreateWithoutArticleInput!]
+  createMany: CommentCreateManyArticleInputEnvelope
+  delete: [CommentWhereUniqueInput!]
+  deleteMany: [CommentScalarWhereInput!]
+  disconnect: [CommentWhereUniqueInput!]
+  set: [CommentWhereUniqueInput!]
+  update: [CommentUpdateWithWhereUniqueWithoutArticleInput!]
+  updateMany: [CommentUpdateManyWithWhereWithoutArticleInput!]
+  upsert: [CommentUpsertWithWhereUniqueWithoutArticleInput!]
+}
+
+input CommentUpdateManyWithoutUserNestedInput {
+  connect: [CommentWhereUniqueInput!]
+  connectOrCreate: [CommentCreateOrConnectWithoutUserInput!]
+  create: [CommentCreateWithoutUserInput!]
+  createMany: CommentCreateManyUserInputEnvelope
+  delete: [CommentWhereUniqueInput!]
+  deleteMany: [CommentScalarWhereInput!]
+  disconnect: [CommentWhereUniqueInput!]
+  set: [CommentWhereUniqueInput!]
+  update: [CommentUpdateWithWhereUniqueWithoutUserInput!]
+  updateMany: [CommentUpdateManyWithWhereWithoutUserInput!]
+  upsert: [CommentUpsertWithWhereUniqueWithoutUserInput!]
+}
+
+input CommentUpdateWithWhereUniqueWithoutArticleInput {
+  data: CommentUpdateWithoutArticleInput!
+  where: CommentWhereUniqueInput!
+}
+
+input CommentUpdateWithWhereUniqueWithoutUserInput {
+  data: CommentUpdateWithoutUserInput!
+  where: CommentWhereUniqueInput!
+}
+
+input CommentUpdateWithoutArticleInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  text: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  user: UserUpdateOneRequiredWithoutCommentsNestedInput
+}
+
+input CommentUpdateWithoutUserInput {
+  article: ArticleUpdateOneRequiredWithoutCommentsNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  text: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input CommentUpsertWithWhereUniqueWithoutArticleInput {
+  create: CommentCreateWithoutArticleInput!
+  update: CommentUpdateWithoutArticleInput!
+  where: CommentWhereUniqueInput!
+}
+
+input CommentUpsertWithWhereUniqueWithoutUserInput {
+  create: CommentCreateWithoutUserInput!
+  update: CommentUpdateWithoutUserInput!
+  where: CommentWhereUniqueInput!
+}
+
+input CommentWhereInput {
+  AND: [CommentWhereInput!]
+  NOT: [CommentWhereInput!]
+  OR: [CommentWhereInput!]
+  article: ArticleRelationFilter
+  articleId: IntFilter
+  createdAt: DateTimeFilter
+  id: IntFilter
+  text: StringFilter
+  updatedAt: DateTimeFilter
+  user: UserRelationFilter
+  userId: IntFilter
+}
+
+input CommentWhereUniqueInput {
+  AND: [CommentWhereInput!]
+  NOT: [CommentWhereInput!]
+  OR: [CommentWhereInput!]
+  article: ArticleRelationFilter
+  articleId: IntFilter
+  createdAt: DateTimeFilter
+  id: Int
+  text: StringFilter
+  updatedAt: DateTimeFilter
+  user: UserRelationFilter
+  userId: IntFilter
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input DateTimeFieldUpdateOperationsInput {
+  set: DateTime
+}
+
+input DateTimeFilter {
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  not: NestedDateTimeFilter
+  notIn: [DateTime!]
+}
+
+input DateTimeWithAggregatesFilter {
+  _count: NestedIntFilter
+  _max: NestedDateTimeFilter
+  _min: NestedDateTimeFilter
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  not: NestedDateTimeWithAggregatesFilter
+  notIn: [DateTime!]
+}
+
+input EnumOperationNullableListFilter {
+  equals: [Operation!]
+  has: Operation
+  hasEvery: [Operation!]
+  hasSome: [Operation!]
+  isEmpty: Boolean
+}
+
+input EnumRoleTypesFieldUpdateOperationsInput {
+  set: RoleTypes
+}
+
+input EnumRoleTypesFilter {
+  equals: RoleTypes
+  in: [RoleTypes!]
+  not: NestedEnumRoleTypesFilter
+  notIn: [RoleTypes!]
+}
+
+input EnumRoleTypesNullableFilter {
+  equals: RoleTypes
+  in: [RoleTypes!]
+  not: NestedEnumRoleTypesNullableFilter
+  notIn: [RoleTypes!]
+}
+
+input EnumRoleTypesNullableWithAggregatesFilter {
+  _count: NestedIntNullableFilter
+  _max: NestedEnumRoleTypesNullableFilter
+  _min: NestedEnumRoleTypesNullableFilter
+  equals: RoleTypes
+  in: [RoleTypes!]
+  not: NestedEnumRoleTypesNullableWithAggregatesFilter
+  notIn: [RoleTypes!]
+}
+
+input EnumRoleTypesWithAggregatesFilter {
+  _count: NestedIntFilter
+  _max: NestedEnumRoleTypesFilter
+  _min: NestedEnumRoleTypesFilter
+  equals: RoleTypes
+  in: [RoleTypes!]
+  not: NestedEnumRoleTypesWithAggregatesFilter
+  notIn: [RoleTypes!]
+}
+
+input IntFieldUpdateOperationsInput {
+  decrement: Int
+  divide: Int
+  increment: Int
+  multiply: Int
+  set: Int
+}
+
+input IntFilter {
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: NestedIntFilter
+  notIn: [Int!]
+}
+
+input IntWithAggregatesFilter {
+  _avg: NestedFloatFilter
+  _count: NestedIntFilter
+  _max: NestedIntFilter
+  _min: NestedIntFilter
+  _sum: NestedIntFilter
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: NestedIntWithAggregatesFilter
+  notIn: [Int!]
+}
+
+type Like {
+  article: Article!
+  articleId: Int!
+  createdAt: DateTime!
+  id: ID!
+  updatedAt: DateTime!
+  user: User!
+  userId: Int!
+}
+
+type LikeAvgAggregate {
+  articleId: Float
+  id: Float
+  userId: Float
+}
+
+input LikeAvgAggregateInput {
+  articleId: Boolean
+  id: Boolean
+  userId: Boolean
+}
+
+input LikeAvgOrderByAggregateInput {
+  articleId: SortOrder
+  id: SortOrder
+  userId: SortOrder
+}
+
+type LikeCountAggregate {
+  _all: Int!
+  articleId: Int!
+  createdAt: Int!
+  id: Int!
+  updatedAt: Int!
+  userId: Int!
+}
+
+input LikeCountAggregateInput {
+  _all: Boolean
+  articleId: Boolean
+  createdAt: Boolean
+  id: Boolean
+  updatedAt: Boolean
+  userId: Boolean
+}
+
+input LikeCountOrderByAggregateInput {
+  articleId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  updatedAt: SortOrder
+  userId: SortOrder
+}
+
+input LikeCreateInput {
+  article: ArticleCreateNestedOneWithoutLikesInput!
+  createdAt: DateTime
+  updatedAt: DateTime
+  user: UserCreateNestedOneWithoutLikesInput!
+}
+
+input LikeCreateManyArticleInput {
+  createdAt: DateTime
+  id: Int
+  updatedAt: DateTime
+  userId: Int!
+}
+
+input LikeCreateManyArticleInputEnvelope {
+  data: [LikeCreateManyArticleInput!]!
+  skipDuplicates: Boolean
+}
+
+input LikeCreateManyInput {
+  articleId: Int!
+  createdAt: DateTime
+  id: Int
+  updatedAt: DateTime
+  userId: Int!
+}
+
+input LikeCreateManyUserInput {
+  articleId: Int!
+  createdAt: DateTime
+  id: Int
+  updatedAt: DateTime
+}
+
+input LikeCreateManyUserInputEnvelope {
+  data: [LikeCreateManyUserInput!]!
+  skipDuplicates: Boolean
+}
+
+input LikeCreateNestedManyWithoutArticleInput {
+  connect: [LikeWhereUniqueInput!]
+  connectOrCreate: [LikeCreateOrConnectWithoutArticleInput!]
+  create: [LikeCreateWithoutArticleInput!]
+  createMany: LikeCreateManyArticleInputEnvelope
+}
+
+input LikeCreateNestedManyWithoutUserInput {
+  connect: [LikeWhereUniqueInput!]
+  connectOrCreate: [LikeCreateOrConnectWithoutUserInput!]
+  create: [LikeCreateWithoutUserInput!]
+  createMany: LikeCreateManyUserInputEnvelope
+}
+
+input LikeCreateOrConnectWithoutArticleInput {
+  create: LikeCreateWithoutArticleInput!
+  where: LikeWhereUniqueInput!
+}
+
+input LikeCreateOrConnectWithoutUserInput {
+  create: LikeCreateWithoutUserInput!
+  where: LikeWhereUniqueInput!
+}
+
+input LikeCreateWithoutArticleInput {
+  createdAt: DateTime
+  updatedAt: DateTime
+  user: UserCreateNestedOneWithoutLikesInput!
+}
+
+input LikeCreateWithoutUserInput {
+  article: ArticleCreateNestedOneWithoutLikesInput!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type LikeGroupBy {
+  _avg: LikeAvgAggregate
+  _count: LikeCountAggregate
+  _max: LikeMaxAggregate
+  _min: LikeMinAggregate
+  _sum: LikeSumAggregate
+  articleId: Int!
+  createdAt: DateTime!
+  id: Int!
+  updatedAt: DateTime!
+  userId: Int!
+}
+
+input LikeListRelationFilter {
+  every: LikeWhereInput
+  none: LikeWhereInput
+  some: LikeWhereInput
+}
+
+type LikeMaxAggregate {
+  articleId: Int
+  createdAt: DateTime
+  id: Int
+  updatedAt: DateTime
+  userId: Int
+}
+
+input LikeMaxAggregateInput {
+  articleId: Boolean
+  createdAt: Boolean
+  id: Boolean
+  updatedAt: Boolean
+  userId: Boolean
+}
+
+input LikeMaxOrderByAggregateInput {
+  articleId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  updatedAt: SortOrder
+  userId: SortOrder
+}
+
+type LikeMinAggregate {
+  articleId: Int
+  createdAt: DateTime
+  id: Int
+  updatedAt: DateTime
+  userId: Int
+}
+
+input LikeMinAggregateInput {
+  articleId: Boolean
+  createdAt: Boolean
+  id: Boolean
+  updatedAt: Boolean
+  userId: Boolean
+}
+
+input LikeMinOrderByAggregateInput {
+  articleId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  updatedAt: SortOrder
+  userId: SortOrder
+}
+
+input LikeOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input LikeOrderByWithAggregationInput {
+  _avg: LikeAvgOrderByAggregateInput
+  _count: LikeCountOrderByAggregateInput
+  _max: LikeMaxOrderByAggregateInput
+  _min: LikeMinOrderByAggregateInput
+  _sum: LikeSumOrderByAggregateInput
+  articleId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  updatedAt: SortOrder
+  userId: SortOrder
+}
+
+input LikeOrderByWithRelationInput {
+  article: ArticleOrderByWithRelationInput
+  articleId: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  updatedAt: SortOrder
+  user: UserOrderByWithRelationInput
+  userId: SortOrder
+}
+
+enum LikeScalarFieldEnum {
+  articleId
+  createdAt
+  id
+  updatedAt
+  userId
+}
+
+input LikeScalarWhereInput {
+  AND: [LikeScalarWhereInput!]
+  NOT: [LikeScalarWhereInput!]
+  OR: [LikeScalarWhereInput!]
+  articleId: IntFilter
+  createdAt: DateTimeFilter
+  id: IntFilter
+  updatedAt: DateTimeFilter
+  userId: IntFilter
+}
+
+input LikeScalarWhereWithAggregatesInput {
+  AND: [LikeScalarWhereWithAggregatesInput!]
+  NOT: [LikeScalarWhereWithAggregatesInput!]
+  OR: [LikeScalarWhereWithAggregatesInput!]
+  articleId: IntWithAggregatesFilter
+  createdAt: DateTimeWithAggregatesFilter
+  id: IntWithAggregatesFilter
+  updatedAt: DateTimeWithAggregatesFilter
+  userId: IntWithAggregatesFilter
+}
+
+type LikeSumAggregate {
+  articleId: Int
+  id: Int
+  userId: Int
+}
+
+input LikeSumAggregateInput {
+  articleId: Boolean
+  id: Boolean
+  userId: Boolean
+}
+
+input LikeSumOrderByAggregateInput {
+  articleId: SortOrder
+  id: SortOrder
+  userId: SortOrder
+}
+
+input LikeUpdateInput {
+  article: ArticleUpdateOneRequiredWithoutLikesNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  user: UserUpdateOneRequiredWithoutLikesNestedInput
+}
+
+input LikeUpdateManyMutationInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input LikeUpdateManyWithWhereWithoutArticleInput {
+  data: LikeUpdateManyMutationInput!
+  where: LikeScalarWhereInput!
+}
+
+input LikeUpdateManyWithWhereWithoutUserInput {
+  data: LikeUpdateManyMutationInput!
+  where: LikeScalarWhereInput!
+}
+
+input LikeUpdateManyWithoutArticleNestedInput {
+  connect: [LikeWhereUniqueInput!]
+  connectOrCreate: [LikeCreateOrConnectWithoutArticleInput!]
+  create: [LikeCreateWithoutArticleInput!]
+  createMany: LikeCreateManyArticleInputEnvelope
+  delete: [LikeWhereUniqueInput!]
+  deleteMany: [LikeScalarWhereInput!]
+  disconnect: [LikeWhereUniqueInput!]
+  set: [LikeWhereUniqueInput!]
+  update: [LikeUpdateWithWhereUniqueWithoutArticleInput!]
+  updateMany: [LikeUpdateManyWithWhereWithoutArticleInput!]
+  upsert: [LikeUpsertWithWhereUniqueWithoutArticleInput!]
+}
+
+input LikeUpdateManyWithoutUserNestedInput {
+  connect: [LikeWhereUniqueInput!]
+  connectOrCreate: [LikeCreateOrConnectWithoutUserInput!]
+  create: [LikeCreateWithoutUserInput!]
+  createMany: LikeCreateManyUserInputEnvelope
+  delete: [LikeWhereUniqueInput!]
+  deleteMany: [LikeScalarWhereInput!]
+  disconnect: [LikeWhereUniqueInput!]
+  set: [LikeWhereUniqueInput!]
+  update: [LikeUpdateWithWhereUniqueWithoutUserInput!]
+  updateMany: [LikeUpdateManyWithWhereWithoutUserInput!]
+  upsert: [LikeUpsertWithWhereUniqueWithoutUserInput!]
+}
+
+input LikeUpdateWithWhereUniqueWithoutArticleInput {
+  data: LikeUpdateWithoutArticleInput!
+  where: LikeWhereUniqueInput!
+}
+
+input LikeUpdateWithWhereUniqueWithoutUserInput {
+  data: LikeUpdateWithoutUserInput!
+  where: LikeWhereUniqueInput!
+}
+
+input LikeUpdateWithoutArticleInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  user: UserUpdateOneRequiredWithoutLikesNestedInput
+}
+
+input LikeUpdateWithoutUserInput {
+  article: ArticleUpdateOneRequiredWithoutLikesNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input LikeUpsertWithWhereUniqueWithoutArticleInput {
+  create: LikeCreateWithoutArticleInput!
+  update: LikeUpdateWithoutArticleInput!
+  where: LikeWhereUniqueInput!
+}
+
+input LikeUpsertWithWhereUniqueWithoutUserInput {
+  create: LikeCreateWithoutUserInput!
+  update: LikeUpdateWithoutUserInput!
+  where: LikeWhereUniqueInput!
+}
+
+input LikeWhereInput {
+  AND: [LikeWhereInput!]
+  NOT: [LikeWhereInput!]
+  OR: [LikeWhereInput!]
+  article: ArticleRelationFilter
+  articleId: IntFilter
+  createdAt: DateTimeFilter
+  id: IntFilter
+  updatedAt: DateTimeFilter
+  user: UserRelationFilter
+  userId: IntFilter
+}
+
+input LikeWhereUniqueInput {
+  AND: [LikeWhereInput!]
+  NOT: [LikeWhereInput!]
+  OR: [LikeWhereInput!]
+  article: ArticleRelationFilter
+  articleId: IntFilter
+  createdAt: DateTimeFilter
+  id: Int
+  updatedAt: DateTimeFilter
+  user: UserRelationFilter
+  userId: IntFilter
+}
+
+type LoginData {
+  access_token: String
+  error: String
+  status: Boolean!
+}
+
+type Mutation {
+  createArticle(data: ArticleCreateInput!): Article
+  createCategory(data: CategoryCreateInput!): Category
+  createComment(data: CommentCreateInput!): Comment
+  createLike(data: LikeCreateInput!): Like
+  createManyArticle(data: [ArticleCreateManyInput!]!, skipDuplicates: Boolean): AffectedRows
+  createManyCategory(data: [CategoryCreateManyInput!]!, skipDuplicates: Boolean): AffectedRows
+  createManyComment(data: [CommentCreateManyInput!]!, skipDuplicates: Boolean): AffectedRows
+  createManyLike(data: [LikeCreateManyInput!]!, skipDuplicates: Boolean): AffectedRows
+  createManyPermission(data: [PermissionCreateManyInput!]!, skipDuplicates: Boolean): AffectedRows
+  createManyRole(data: [RoleCreateManyInput!]!, skipDuplicates: Boolean): AffectedRows
+  createManyUser(data: [UserCreateManyInput!]!, skipDuplicates: Boolean): AffectedRows
+  createPermission(data: PermissionCreateInput!): Permission
+  createRole(data: RoleCreateInput!): Role
+  createUser(data: UserCreateInput!): User
+  deleteArticle(where: ArticleWhereUniqueInput!): Article
+  deleteCategory(where: CategoryWhereUniqueInput!): Category
+  deleteComment(where: CommentWhereUniqueInput!): Comment
+  deleteLike(where: LikeWhereUniqueInput!): Like
+  deleteManyArticle(where: ArticleWhereInput): AffectedRows
+  deleteManyCategory(where: CategoryWhereInput): AffectedRows
+  deleteManyComment(where: CommentWhereInput): AffectedRows
+  deleteManyLike(where: LikeWhereInput): AffectedRows
+  deleteManyPermission(where: PermissionWhereInput): AffectedRows
+  deleteManyRole(where: RoleWhereInput): AffectedRows
+  deleteManyUser(where: UserWhereInput): AffectedRows
+  deletePermission(where: PermissionWhereUniqueInput!): Permission
+  deleteRole(where: RoleWhereUniqueInput!): Role
+  deleteUser(where: UserWhereUniqueInput!): User
+  registerUser(data: UserCreateInput!): User!
+  updateArticle(data: ArticleUpdateInput!, where: ArticleWhereUniqueInput!): Article
+  updateCategory(data: CategoryUpdateInput!, where: CategoryWhereUniqueInput!): Category
+  updateComment(data: CommentUpdateInput!, where: CommentWhereUniqueInput!): Comment
+  updateLike(data: LikeUpdateInput!, where: LikeWhereUniqueInput!): Like
+  updateManyArticle(data: ArticleUpdateManyMutationInput!, where: ArticleWhereInput): AffectedRows
+  updateManyCategory(data: CategoryUpdateManyMutationInput!, where: CategoryWhereInput): AffectedRows
+  updateManyComment(data: CommentUpdateManyMutationInput!, where: CommentWhereInput): AffectedRows
+  updateManyLike(data: LikeUpdateManyMutationInput!, where: LikeWhereInput): AffectedRows
+  updateManyPermission(data: PermissionUpdateManyMutationInput!, where: PermissionWhereInput): AffectedRows
+  updateManyRole(data: RoleUpdateManyMutationInput!, where: RoleWhereInput): AffectedRows
+  updateManyUser(data: UserUpdateManyMutationInput!, where: UserWhereInput): AffectedRows
+  updatePermission(data: PermissionUpdateInput!, where: PermissionWhereUniqueInput!): Permission
+  updateRole(data: RoleUpdateInput!, where: RoleWhereUniqueInput!): Role
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+}
+
+input NestedDateTimeFilter {
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  not: NestedDateTimeFilter
+  notIn: [DateTime!]
+}
+
+input NestedDateTimeWithAggregatesFilter {
+  _count: NestedIntFilter
+  _max: NestedDateTimeFilter
+  _min: NestedDateTimeFilter
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  not: NestedDateTimeWithAggregatesFilter
+  notIn: [DateTime!]
+}
+
+input NestedEnumRoleTypesFilter {
+  equals: RoleTypes
+  in: [RoleTypes!]
+  not: NestedEnumRoleTypesFilter
+  notIn: [RoleTypes!]
+}
+
+input NestedEnumRoleTypesNullableFilter {
+  equals: RoleTypes
+  in: [RoleTypes!]
+  not: NestedEnumRoleTypesNullableFilter
+  notIn: [RoleTypes!]
+}
+
+input NestedEnumRoleTypesNullableWithAggregatesFilter {
+  _count: NestedIntNullableFilter
+  _max: NestedEnumRoleTypesNullableFilter
+  _min: NestedEnumRoleTypesNullableFilter
+  equals: RoleTypes
+  in: [RoleTypes!]
+  not: NestedEnumRoleTypesNullableWithAggregatesFilter
+  notIn: [RoleTypes!]
+}
+
+input NestedEnumRoleTypesWithAggregatesFilter {
+  _count: NestedIntFilter
+  _max: NestedEnumRoleTypesFilter
+  _min: NestedEnumRoleTypesFilter
+  equals: RoleTypes
+  in: [RoleTypes!]
+  not: NestedEnumRoleTypesWithAggregatesFilter
+  notIn: [RoleTypes!]
+}
+
+input NestedFloatFilter {
+  equals: Float
+  gt: Float
+  gte: Float
+  in: [Float!]
+  lt: Float
+  lte: Float
+  not: NestedFloatFilter
+  notIn: [Float!]
+}
+
+input NestedIntFilter {
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: NestedIntFilter
+  notIn: [Int!]
+}
+
+input NestedIntNullableFilter {
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: NestedIntNullableFilter
+  notIn: [Int!]
+}
+
+input NestedIntWithAggregatesFilter {
+  _avg: NestedFloatFilter
+  _count: NestedIntFilter
+  _max: NestedIntFilter
+  _min: NestedIntFilter
+  _sum: NestedIntFilter
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: NestedIntWithAggregatesFilter
+  notIn: [Int!]
+}
+
+input NestedStringFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  not: NestedStringFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+input NestedStringNullableFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  not: NestedStringNullableFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+input NestedStringNullableWithAggregatesFilter {
+  _count: NestedIntNullableFilter
+  _max: NestedStringNullableFilter
+  _min: NestedStringNullableFilter
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  not: NestedStringNullableWithAggregatesFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+input NestedStringWithAggregatesFilter {
+  _count: NestedIntFilter
+  _max: NestedStringFilter
+  _min: NestedStringFilter
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  not: NestedStringWithAggregatesFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+input NullableEnumRoleTypesFieldUpdateOperationsInput {
+  set: RoleTypes
+}
+
+input NullableStringFieldUpdateOperationsInput {
+  set: String
+}
+
+enum NullsOrder {
+  first
+  last
+}
+
+enum Operation {
+  create
+  delete
+  get
+  list
+  onCreate
+  onDelete
+  onUpdate
+  search
+  update
+}
+
+type Permission {
+  allowedOperations: [Operation!]
+  createdAt: DateTime!
+  id: ID!
+  modelName: String!
+  role: Role!
+  rolePermissionsId: Int!
+  updatedAt: DateTime!
+}
+
+type PermissionAvgAggregate {
+  id: Float
+  rolePermissionsId: Float
+}
+
+input PermissionAvgAggregateInput {
+  id: Boolean
+  rolePermissionsId: Boolean
+}
+
+input PermissionAvgOrderByAggregateInput {
+  id: SortOrder
+  rolePermissionsId: SortOrder
+}
+
+type PermissionCountAggregate {
+  _all: Int!
+  allowedOperations: Int!
+  createdAt: Int!
+  id: Int!
+  modelName: Int!
+  rolePermissionsId: Int!
+  updatedAt: Int!
+}
+
+input PermissionCountAggregateInput {
+  _all: Boolean
+  allowedOperations: Boolean
+  createdAt: Boolean
+  id: Boolean
+  modelName: Boolean
+  rolePermissionsId: Boolean
+  updatedAt: Boolean
+}
+
+input PermissionCountOrderByAggregateInput {
+  allowedOperations: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  modelName: SortOrder
+  rolePermissionsId: SortOrder
+  updatedAt: SortOrder
+}
+
+input PermissionCreateInput {
+  allowedOperations: PermissionCreateallowedOperationsInput
+  createdAt: DateTime
+  modelName: String!
+  role: RoleCreateNestedOneWithoutPermissionsInput!
+  updatedAt: DateTime
+}
+
+input PermissionCreateManyInput {
+  allowedOperations: PermissionCreateallowedOperationsInput
+  createdAt: DateTime
+  id: Int
+  modelName: String!
+  rolePermissionsId: Int!
+  updatedAt: DateTime
+}
+
+input PermissionCreateManyRoleInput {
+  allowedOperations: PermissionCreateallowedOperationsInput
+  createdAt: DateTime
+  id: Int
+  modelName: String!
+  updatedAt: DateTime
+}
+
+input PermissionCreateManyRoleInputEnvelope {
+  data: [PermissionCreateManyRoleInput!]!
+  skipDuplicates: Boolean
+}
+
+input PermissionCreateNestedManyWithoutRoleInput {
+  connect: [PermissionWhereUniqueInput!]
+  connectOrCreate: [PermissionCreateOrConnectWithoutRoleInput!]
+  create: [PermissionCreateWithoutRoleInput!]
+  createMany: PermissionCreateManyRoleInputEnvelope
+}
+
+input PermissionCreateOrConnectWithoutRoleInput {
+  create: PermissionCreateWithoutRoleInput!
+  where: PermissionWhereUniqueInput!
+}
+
+input PermissionCreateWithoutRoleInput {
+  allowedOperations: PermissionCreateallowedOperationsInput
+  createdAt: DateTime
+  modelName: String!
+  updatedAt: DateTime
+}
+
+input PermissionCreateallowedOperationsInput {
+  set: [Operation!]!
+}
+
+type PermissionGroupBy {
+  _avg: PermissionAvgAggregate
+  _count: PermissionCountAggregate
+  _max: PermissionMaxAggregate
+  _min: PermissionMinAggregate
+  _sum: PermissionSumAggregate
+  allowedOperations: [Operation!]
+  createdAt: DateTime!
+  id: Int!
+  modelName: String!
+  rolePermissionsId: Int!
+  updatedAt: DateTime!
+}
+
+input PermissionListRelationFilter {
+  every: PermissionWhereInput
+  none: PermissionWhereInput
+  some: PermissionWhereInput
+}
+
+type PermissionMaxAggregate {
+  createdAt: DateTime
+  id: Int
+  modelName: String
+  rolePermissionsId: Int
+  updatedAt: DateTime
+}
+
+input PermissionMaxAggregateInput {
+  createdAt: Boolean
+  id: Boolean
+  modelName: Boolean
+  rolePermissionsId: Boolean
+  updatedAt: Boolean
+}
+
+input PermissionMaxOrderByAggregateInput {
+  createdAt: SortOrder
+  id: SortOrder
+  modelName: SortOrder
+  rolePermissionsId: SortOrder
+  updatedAt: SortOrder
+}
+
+type PermissionMinAggregate {
+  createdAt: DateTime
+  id: Int
+  modelName: String
+  rolePermissionsId: Int
+  updatedAt: DateTime
+}
+
+input PermissionMinAggregateInput {
+  createdAt: Boolean
+  id: Boolean
+  modelName: Boolean
+  rolePermissionsId: Boolean
+  updatedAt: Boolean
+}
+
+input PermissionMinOrderByAggregateInput {
+  createdAt: SortOrder
+  id: SortOrder
+  modelName: SortOrder
+  rolePermissionsId: SortOrder
+  updatedAt: SortOrder
+}
+
+input PermissionOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input PermissionOrderByWithAggregationInput {
+  _avg: PermissionAvgOrderByAggregateInput
+  _count: PermissionCountOrderByAggregateInput
+  _max: PermissionMaxOrderByAggregateInput
+  _min: PermissionMinOrderByAggregateInput
+  _sum: PermissionSumOrderByAggregateInput
+  allowedOperations: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  modelName: SortOrder
+  rolePermissionsId: SortOrder
+  updatedAt: SortOrder
+}
+
+input PermissionOrderByWithRelationInput {
+  allowedOperations: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  modelName: SortOrder
+  role: RoleOrderByWithRelationInput
+  rolePermissionsId: SortOrder
+  updatedAt: SortOrder
+}
+
+enum PermissionScalarFieldEnum {
+  allowedOperations
+  createdAt
+  id
+  modelName
+  rolePermissionsId
+  updatedAt
+}
+
+input PermissionScalarWhereInput {
+  AND: [PermissionScalarWhereInput!]
+  NOT: [PermissionScalarWhereInput!]
+  OR: [PermissionScalarWhereInput!]
+  allowedOperations: EnumOperationNullableListFilter
+  createdAt: DateTimeFilter
+  id: IntFilter
+  modelName: StringFilter
+  rolePermissionsId: IntFilter
+  updatedAt: DateTimeFilter
+}
+
+input PermissionScalarWhereWithAggregatesInput {
+  AND: [PermissionScalarWhereWithAggregatesInput!]
+  NOT: [PermissionScalarWhereWithAggregatesInput!]
+  OR: [PermissionScalarWhereWithAggregatesInput!]
+  allowedOperations: EnumOperationNullableListFilter
+  createdAt: DateTimeWithAggregatesFilter
+  id: IntWithAggregatesFilter
+  modelName: StringWithAggregatesFilter
+  rolePermissionsId: IntWithAggregatesFilter
+  updatedAt: DateTimeWithAggregatesFilter
+}
+
+type PermissionSumAggregate {
+  id: Int
+  rolePermissionsId: Int
+}
+
+input PermissionSumAggregateInput {
+  id: Boolean
+  rolePermissionsId: Boolean
+}
+
+input PermissionSumOrderByAggregateInput {
+  id: SortOrder
+  rolePermissionsId: SortOrder
+}
+
+input PermissionUpdateInput {
+  allowedOperations: PermissionUpdateallowedOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  modelName: StringFieldUpdateOperationsInput
+  role: RoleUpdateOneRequiredWithoutPermissionsNestedInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input PermissionUpdateManyMutationInput {
+  allowedOperations: PermissionUpdateallowedOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  modelName: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input PermissionUpdateManyWithWhereWithoutRoleInput {
+  data: PermissionUpdateManyMutationInput!
+  where: PermissionScalarWhereInput!
+}
+
+input PermissionUpdateManyWithoutRoleNestedInput {
+  connect: [PermissionWhereUniqueInput!]
+  connectOrCreate: [PermissionCreateOrConnectWithoutRoleInput!]
+  create: [PermissionCreateWithoutRoleInput!]
+  createMany: PermissionCreateManyRoleInputEnvelope
+  delete: [PermissionWhereUniqueInput!]
+  deleteMany: [PermissionScalarWhereInput!]
+  disconnect: [PermissionWhereUniqueInput!]
+  set: [PermissionWhereUniqueInput!]
+  update: [PermissionUpdateWithWhereUniqueWithoutRoleInput!]
+  updateMany: [PermissionUpdateManyWithWhereWithoutRoleInput!]
+  upsert: [PermissionUpsertWithWhereUniqueWithoutRoleInput!]
+}
+
+input PermissionUpdateWithWhereUniqueWithoutRoleInput {
+  data: PermissionUpdateWithoutRoleInput!
+  where: PermissionWhereUniqueInput!
+}
+
+input PermissionUpdateWithoutRoleInput {
+  allowedOperations: PermissionUpdateallowedOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  modelName: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input PermissionUpdateallowedOperationsInput {
+  push: [Operation!]
+  set: [Operation!]
+}
+
+input PermissionUpsertWithWhereUniqueWithoutRoleInput {
+  create: PermissionCreateWithoutRoleInput!
+  update: PermissionUpdateWithoutRoleInput!
+  where: PermissionWhereUniqueInput!
+}
+
+input PermissionWhereInput {
+  AND: [PermissionWhereInput!]
+  NOT: [PermissionWhereInput!]
+  OR: [PermissionWhereInput!]
+  allowedOperations: EnumOperationNullableListFilter
+  createdAt: DateTimeFilter
+  id: IntFilter
+  modelName: StringFilter
+  role: RoleRelationFilter
+  rolePermissionsId: IntFilter
+  updatedAt: DateTimeFilter
+}
+
+input PermissionWhereUniqueInput {
+  AND: [PermissionWhereInput!]
+  NOT: [PermissionWhereInput!]
+  OR: [PermissionWhereInput!]
+  allowedOperations: EnumOperationNullableListFilter
+  createdAt: DateTimeFilter
+  id: Int
+  modelName: String
+  role: RoleRelationFilter
+  rolePermissionsId: IntFilter
+  updatedAt: DateTimeFilter
+}
+
+type Query {
+  aggregateArticle(_avg: ArticleAvgAggregateInput, _count: ArticleCountAggregateInput, _max: ArticleMaxAggregateInput, _min: ArticleMinAggregateInput, _sum: ArticleSumAggregateInput, cursor: ArticleWhereUniqueInput, orderBy: [ArticleOrderByWithRelationInput!], skip: Int, take: Int, where: ArticleWhereInput): AggregateArticle!
+  aggregateCategory(_avg: CategoryAvgAggregateInput, _count: CategoryCountAggregateInput, _max: CategoryMaxAggregateInput, _min: CategoryMinAggregateInput, _sum: CategorySumAggregateInput, cursor: CategoryWhereUniqueInput, orderBy: [CategoryOrderByWithRelationInput!], skip: Int, take: Int, where: CategoryWhereInput): AggregateCategory!
+  aggregateComment(_avg: CommentAvgAggregateInput, _count: CommentCountAggregateInput, _max: CommentMaxAggregateInput, _min: CommentMinAggregateInput, _sum: CommentSumAggregateInput, cursor: CommentWhereUniqueInput, orderBy: [CommentOrderByWithRelationInput!], skip: Int, take: Int, where: CommentWhereInput): AggregateComment!
+  aggregateLike(_avg: LikeAvgAggregateInput, _count: LikeCountAggregateInput, _max: LikeMaxAggregateInput, _min: LikeMinAggregateInput, _sum: LikeSumAggregateInput, cursor: LikeWhereUniqueInput, orderBy: [LikeOrderByWithRelationInput!], skip: Int, take: Int, where: LikeWhereInput): AggregateLike!
+  aggregatePermission(_avg: PermissionAvgAggregateInput, _count: PermissionCountAggregateInput, _max: PermissionMaxAggregateInput, _min: PermissionMinAggregateInput, _sum: PermissionSumAggregateInput, cursor: PermissionWhereUniqueInput, orderBy: [PermissionOrderByWithRelationInput!], skip: Int, take: Int, where: PermissionWhereInput): AggregatePermission!
+  aggregateRole(_avg: RoleAvgAggregateInput, _count: RoleCountAggregateInput, _max: RoleMaxAggregateInput, _min: RoleMinAggregateInput, _sum: RoleSumAggregateInput, cursor: RoleWhereUniqueInput, orderBy: [RoleOrderByWithRelationInput!], skip: Int, take: Int, where: RoleWhereInput): AggregateRole!
+  aggregateUser(_avg: UserAvgAggregateInput, _count: UserCountAggregateInput, _max: UserMaxAggregateInput, _min: UserMinAggregateInput, _sum: UserSumAggregateInput, cursor: UserWhereUniqueInput, orderBy: [UserOrderByWithRelationInput!], skip: Int, take: Int, where: UserWhereInput): AggregateUser!
+  findFirstArticle(cursor: ArticleWhereUniqueInput, distinct: [ArticleScalarFieldEnum!], orderBy: [ArticleOrderByWithRelationInput!], skip: Int, take: Int, where: ArticleWhereInput): Article!
+  findFirstCategory(cursor: CategoryWhereUniqueInput, distinct: [CategoryScalarFieldEnum!], orderBy: [CategoryOrderByWithRelationInput!], skip: Int, take: Int, where: CategoryWhereInput): Category!
+  findFirstComment(cursor: CommentWhereUniqueInput, distinct: [CommentScalarFieldEnum!], orderBy: [CommentOrderByWithRelationInput!], skip: Int, take: Int, where: CommentWhereInput): Comment!
+  findFirstLike(cursor: LikeWhereUniqueInput, distinct: [LikeScalarFieldEnum!], orderBy: [LikeOrderByWithRelationInput!], skip: Int, take: Int, where: LikeWhereInput): Like!
+  findFirstPermission(cursor: PermissionWhereUniqueInput, distinct: [PermissionScalarFieldEnum!], orderBy: [PermissionOrderByWithRelationInput!], skip: Int, take: Int, where: PermissionWhereInput): Permission!
+  findFirstRole(cursor: RoleWhereUniqueInput, distinct: [RoleScalarFieldEnum!], orderBy: [RoleOrderByWithRelationInput!], skip: Int, take: Int, where: RoleWhereInput): Role!
+  findFirstUser(cursor: UserWhereUniqueInput, distinct: [UserScalarFieldEnum!], orderBy: [UserOrderByWithRelationInput!], skip: Int, take: Int, where: UserWhereInput): User!
+  findUniqueArticle(where: ArticleWhereUniqueInput!): Article!
+  findUniqueCategory(where: CategoryWhereUniqueInput!): Category!
+  findUniqueComment(where: CommentWhereUniqueInput!): Comment!
+  findUniqueLike(where: LikeWhereUniqueInput!): Like!
+  findUniquePermission(where: PermissionWhereUniqueInput!): Permission!
+  findUniqueRole(where: RoleWhereUniqueInput!): Role!
+  findUniqueUser(where: UserWhereUniqueInput!): User!
+  groupByArticle(_avg: ArticleAvgAggregateInput, _count: ArticleCountAggregateInput, _max: ArticleMaxAggregateInput, _min: ArticleMinAggregateInput, _sum: ArticleSumAggregateInput, by: [ArticleScalarFieldEnum!]!, having: ArticleScalarWhereWithAggregatesInput, orderBy: [ArticleOrderByWithAggregationInput!], skip: Int, take: Int, where: ArticleWhereInput): [ArticleGroupBy!]!
+  groupByCategory(_avg: CategoryAvgAggregateInput, _count: CategoryCountAggregateInput, _max: CategoryMaxAggregateInput, _min: CategoryMinAggregateInput, _sum: CategorySumAggregateInput, by: [CategoryScalarFieldEnum!]!, having: CategoryScalarWhereWithAggregatesInput, orderBy: [CategoryOrderByWithAggregationInput!], skip: Int, take: Int, where: CategoryWhereInput): [CategoryGroupBy!]!
+  groupByComment(_avg: CommentAvgAggregateInput, _count: CommentCountAggregateInput, _max: CommentMaxAggregateInput, _min: CommentMinAggregateInput, _sum: CommentSumAggregateInput, by: [CommentScalarFieldEnum!]!, having: CommentScalarWhereWithAggregatesInput, orderBy: [CommentOrderByWithAggregationInput!], skip: Int, take: Int, where: CommentWhereInput): [CommentGroupBy!]!
+  groupByLike(_avg: LikeAvgAggregateInput, _count: LikeCountAggregateInput, _max: LikeMaxAggregateInput, _min: LikeMinAggregateInput, _sum: LikeSumAggregateInput, by: [LikeScalarFieldEnum!]!, having: LikeScalarWhereWithAggregatesInput, orderBy: [LikeOrderByWithAggregationInput!], skip: Int, take: Int, where: LikeWhereInput): [LikeGroupBy!]!
+  groupByPermission(_avg: PermissionAvgAggregateInput, _count: PermissionCountAggregateInput, _max: PermissionMaxAggregateInput, _min: PermissionMinAggregateInput, _sum: PermissionSumAggregateInput, by: [PermissionScalarFieldEnum!]!, having: PermissionScalarWhereWithAggregatesInput, orderBy: [PermissionOrderByWithAggregationInput!], skip: Int, take: Int, where: PermissionWhereInput): [PermissionGroupBy!]!
+  groupByRole(_avg: RoleAvgAggregateInput, _count: RoleCountAggregateInput, _max: RoleMaxAggregateInput, _min: RoleMinAggregateInput, _sum: RoleSumAggregateInput, by: [RoleScalarFieldEnum!]!, having: RoleScalarWhereWithAggregatesInput, orderBy: [RoleOrderByWithAggregationInput!], skip: Int, take: Int, where: RoleWhereInput): [RoleGroupBy!]!
+  groupByUser(_avg: UserAvgAggregateInput, _count: UserCountAggregateInput, _max: UserMaxAggregateInput, _min: UserMinAggregateInput, _sum: UserSumAggregateInput, by: [UserScalarFieldEnum!]!, having: UserScalarWhereWithAggregatesInput, orderBy: [UserOrderByWithAggregationInput!], skip: Int, take: Int, where: UserWhereInput): [UserGroupBy!]!
+  listArticles(cursor: ArticleWhereUniqueInput, distinct: [ArticleScalarFieldEnum!], orderBy: [ArticleOrderByWithRelationInput!], skip: Int, take: Int, where: ArticleWhereInput): [Article!]!
+  listCategorys(cursor: CategoryWhereUniqueInput, distinct: [CategoryScalarFieldEnum!], orderBy: [CategoryOrderByWithRelationInput!], skip: Int, take: Int, where: CategoryWhereInput): [Category!]!
+  listComments(cursor: CommentWhereUniqueInput, distinct: [CommentScalarFieldEnum!], orderBy: [CommentOrderByWithRelationInput!], skip: Int, take: Int, where: CommentWhereInput): [Comment!]!
+  listLikes(cursor: LikeWhereUniqueInput, distinct: [LikeScalarFieldEnum!], orderBy: [LikeOrderByWithRelationInput!], skip: Int, take: Int, where: LikeWhereInput): [Like!]!
+  listPermissions(cursor: PermissionWhereUniqueInput, distinct: [PermissionScalarFieldEnum!], orderBy: [PermissionOrderByWithRelationInput!], skip: Int, take: Int, where: PermissionWhereInput): [Permission!]!
+  listRoles(cursor: RoleWhereUniqueInput, distinct: [RoleScalarFieldEnum!], orderBy: [RoleOrderByWithRelationInput!], skip: Int, take: Int, where: RoleWhereInput): [Role!]!
+  listUsers(cursor: UserWhereUniqueInput, distinct: [UserScalarFieldEnum!], orderBy: [UserOrderByWithRelationInput!], skip: Int, take: Int, where: UserWhereInput): [User!]!
+  login(email: String!, password: String!): LoginData!
+}
+
+enum QueryMode {
+  default
+  insensitive
+}
+
+type Role {
+  User: [User!]
+  _count: RoleCount!
+  createdAt: DateTime!
+  id: ID!
+  name: String!
+  permissions: [Permission!]
+  roleType: RoleTypes!
+  updatedAt: DateTime!
+}
+
+type RoleAvgAggregate {
+  id: Float
+}
+
+input RoleAvgAggregateInput {
+  id: Boolean
+}
+
+input RoleAvgOrderByAggregateInput {
+  id: SortOrder
+}
+
+type RoleCount {
+  User: Int!
+  permissions: Int!
+}
+
+type RoleCountAggregate {
+  _all: Int!
+  createdAt: Int!
+  id: Int!
+  name: Int!
+  roleType: Int!
+  updatedAt: Int!
+}
+
+input RoleCountAggregateInput {
+  _all: Boolean
+  createdAt: Boolean
+  id: Boolean
+  name: Boolean
+  roleType: Boolean
+  updatedAt: Boolean
+}
+
+input RoleCountOrderByAggregateInput {
+  createdAt: SortOrder
+  id: SortOrder
+  name: SortOrder
+  roleType: SortOrder
+  updatedAt: SortOrder
+}
+
+input RoleCreateInput {
+  User: UserCreateNestedManyWithoutRoleInput
+  createdAt: DateTime
+  name: String!
+  permissions: PermissionCreateNestedManyWithoutRoleInput
+  roleType: RoleTypes!
+  updatedAt: DateTime
+}
+
+input RoleCreateManyInput {
+  createdAt: DateTime
+  id: Int
+  name: String!
+  roleType: RoleTypes!
+  updatedAt: DateTime
+}
+
+input RoleCreateNestedOneWithoutPermissionsInput {
+  connect: RoleWhereUniqueInput
+  connectOrCreate: RoleCreateOrConnectWithoutPermissionsInput
+  create: RoleCreateWithoutPermissionsInput
+}
+
+input RoleCreateNestedOneWithoutUserInput {
+  connect: RoleWhereUniqueInput
+  connectOrCreate: RoleCreateOrConnectWithoutUserInput
+  create: RoleCreateWithoutUserInput
+}
+
+input RoleCreateOrConnectWithoutPermissionsInput {
+  create: RoleCreateWithoutPermissionsInput!
+  where: RoleWhereUniqueInput!
+}
+
+input RoleCreateOrConnectWithoutUserInput {
+  create: RoleCreateWithoutUserInput!
+  where: RoleWhereUniqueInput!
+}
+
+input RoleCreateWithoutPermissionsInput {
+  User: UserCreateNestedManyWithoutRoleInput
+  createdAt: DateTime
+  name: String!
+  roleType: RoleTypes!
+  updatedAt: DateTime
+}
+
+input RoleCreateWithoutUserInput {
+  createdAt: DateTime
+  name: String!
+  permissions: PermissionCreateNestedManyWithoutRoleInput
+  roleType: RoleTypes!
+  updatedAt: DateTime
+}
+
+type RoleGroupBy {
+  _avg: RoleAvgAggregate
+  _count: RoleCountAggregate
+  _max: RoleMaxAggregate
+  _min: RoleMinAggregate
+  _sum: RoleSumAggregate
+  createdAt: DateTime!
+  id: Int!
+  name: String!
+  roleType: RoleTypes!
+  updatedAt: DateTime!
+}
+
+type RoleMaxAggregate {
+  createdAt: DateTime
+  id: Int
+  name: String
+  roleType: RoleTypes
+  updatedAt: DateTime
+}
+
+input RoleMaxAggregateInput {
+  createdAt: Boolean
+  id: Boolean
+  name: Boolean
+  roleType: Boolean
+  updatedAt: Boolean
+}
+
+input RoleMaxOrderByAggregateInput {
+  createdAt: SortOrder
+  id: SortOrder
+  name: SortOrder
+  roleType: SortOrder
+  updatedAt: SortOrder
+}
+
+type RoleMinAggregate {
+  createdAt: DateTime
+  id: Int
+  name: String
+  roleType: RoleTypes
+  updatedAt: DateTime
+}
+
+input RoleMinAggregateInput {
+  createdAt: Boolean
+  id: Boolean
+  name: Boolean
+  roleType: Boolean
+  updatedAt: Boolean
+}
+
+input RoleMinOrderByAggregateInput {
+  createdAt: SortOrder
+  id: SortOrder
+  name: SortOrder
+  roleType: SortOrder
+  updatedAt: SortOrder
+}
+
+input RoleOrderByWithAggregationInput {
+  _avg: RoleAvgOrderByAggregateInput
+  _count: RoleCountOrderByAggregateInput
+  _max: RoleMaxOrderByAggregateInput
+  _min: RoleMinOrderByAggregateInput
+  _sum: RoleSumOrderByAggregateInput
+  createdAt: SortOrder
+  id: SortOrder
+  name: SortOrder
+  roleType: SortOrder
+  updatedAt: SortOrder
+}
+
+input RoleOrderByWithRelationInput {
+  User: UserOrderByRelationAggregateInput
+  createdAt: SortOrder
+  id: SortOrder
+  name: SortOrder
+  permissions: PermissionOrderByRelationAggregateInput
+  roleType: SortOrder
+  updatedAt: SortOrder
+}
+
+input RoleRelationFilter {
+  is: RoleWhereInput
+  isNot: RoleWhereInput
+}
+
+enum RoleScalarFieldEnum {
+  createdAt
+  id
+  name
+  roleType
+  updatedAt
+}
+
+input RoleScalarWhereWithAggregatesInput {
+  AND: [RoleScalarWhereWithAggregatesInput!]
+  NOT: [RoleScalarWhereWithAggregatesInput!]
+  OR: [RoleScalarWhereWithAggregatesInput!]
+  createdAt: DateTimeWithAggregatesFilter
+  id: IntWithAggregatesFilter
+  name: StringWithAggregatesFilter
+  roleType: EnumRoleTypesWithAggregatesFilter
+  updatedAt: DateTimeWithAggregatesFilter
+}
+
+type RoleSumAggregate {
+  id: Int
+}
+
+input RoleSumAggregateInput {
+  id: Boolean
+}
+
+input RoleSumOrderByAggregateInput {
+  id: SortOrder
+}
+
+enum RoleTypes {
+  ADMIN
+  AUTHOR
+  EDITOR
+  READER
+  SUPER_ADMIN
+}
+
+input RoleUpdateInput {
+  User: UserUpdateManyWithoutRoleNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  permissions: PermissionUpdateManyWithoutRoleNestedInput
+  roleType: EnumRoleTypesFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input RoleUpdateManyMutationInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  roleType: EnumRoleTypesFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input RoleUpdateOneRequiredWithoutPermissionsNestedInput {
+  connect: RoleWhereUniqueInput
+  connectOrCreate: RoleCreateOrConnectWithoutPermissionsInput
+  create: RoleCreateWithoutPermissionsInput
+  update: RoleUpdateToOneWithWhereWithoutPermissionsInput
+  upsert: RoleUpsertWithoutPermissionsInput
+}
+
+input RoleUpdateOneRequiredWithoutUserNestedInput {
+  connect: RoleWhereUniqueInput
+  connectOrCreate: RoleCreateOrConnectWithoutUserInput
+  create: RoleCreateWithoutUserInput
+  update: RoleUpdateToOneWithWhereWithoutUserInput
+  upsert: RoleUpsertWithoutUserInput
+}
+
+input RoleUpdateToOneWithWhereWithoutPermissionsInput {
+  data: RoleUpdateWithoutPermissionsInput!
+  where: RoleWhereInput
+}
+
+input RoleUpdateToOneWithWhereWithoutUserInput {
+  data: RoleUpdateWithoutUserInput!
+  where: RoleWhereInput
+}
+
+input RoleUpdateWithoutPermissionsInput {
+  User: UserUpdateManyWithoutRoleNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  roleType: EnumRoleTypesFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input RoleUpdateWithoutUserInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  permissions: PermissionUpdateManyWithoutRoleNestedInput
+  roleType: EnumRoleTypesFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input RoleUpsertWithoutPermissionsInput {
+  create: RoleCreateWithoutPermissionsInput!
+  update: RoleUpdateWithoutPermissionsInput!
+  where: RoleWhereInput
+}
+
+input RoleUpsertWithoutUserInput {
+  create: RoleCreateWithoutUserInput!
+  update: RoleUpdateWithoutUserInput!
+  where: RoleWhereInput
+}
+
+input RoleWhereInput {
+  AND: [RoleWhereInput!]
+  NOT: [RoleWhereInput!]
+  OR: [RoleWhereInput!]
+  User: UserListRelationFilter
+  createdAt: DateTimeFilter
+  id: IntFilter
+  name: StringFilter
+  permissions: PermissionListRelationFilter
+  roleType: EnumRoleTypesFilter
+  updatedAt: DateTimeFilter
+}
+
+input RoleWhereUniqueInput {
+  AND: [RoleWhereInput!]
+  NOT: [RoleWhereInput!]
+  OR: [RoleWhereInput!]
+  User: UserListRelationFilter
+  createdAt: DateTimeFilter
+  id: Int
+  name: String
+  permissions: PermissionListRelationFilter
+  roleType: EnumRoleTypesFilter
+  updatedAt: DateTimeFilter
+}
+
+enum SortOrder {
+  asc
+  desc
+}
+
+input SortOrderInput {
+  nulls: NullsOrder
+  sort: SortOrder!
+}
+
+input StringFieldUpdateOperationsInput {
+  set: String
+}
+
+input StringFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: NestedStringFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+input StringNullableFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: NestedStringNullableFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+input StringNullableWithAggregatesFilter {
+  _count: NestedIntNullableFilter
+  _max: NestedStringNullableFilter
+  _min: NestedStringNullableFilter
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: NestedStringNullableWithAggregatesFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+input StringWithAggregatesFilter {
+  _count: NestedIntFilter
+  _max: NestedStringFilter
+  _min: NestedStringFilter
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: NestedStringWithAggregatesFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+type User {
+  _count: UserCount!
+  comments: [Comment!]
+  createdAt: DateTime!
+  email: String!
+  id: ID!
+  likes: [Like!]
+  name: String!
+  password: String!
+  phoneNumber: String
+  role: Role!
+  roleType: RoleTypes
+  updatedAt: DateTime!
+  userRoleId: Int!
+  userStatus: String!
+}
+
+type UserAvgAggregate {
+  id: Float
+  userRoleId: Float
+}
+
+input UserAvgAggregateInput {
+  id: Boolean
+  userRoleId: Boolean
+}
+
+input UserAvgOrderByAggregateInput {
+  id: SortOrder
+  userRoleId: SortOrder
+}
+
+type UserCount {
+  comments: Int!
+  likes: Int!
+}
+
+type UserCountAggregate {
+  _all: Int!
+  createdAt: Int!
+  email: Int!
+  id: Int!
+  name: Int!
+  password: Int!
+  phoneNumber: Int!
+  roleType: Int!
+  updatedAt: Int!
+  userRoleId: Int!
+  userStatus: Int!
+}
+
+input UserCountAggregateInput {
+  _all: Boolean
+  createdAt: Boolean
+  email: Boolean
+  id: Boolean
+  name: Boolean
+  password: Boolean
+  phoneNumber: Boolean
+  roleType: Boolean
+  updatedAt: Boolean
+  userRoleId: Boolean
+  userStatus: Boolean
+}
+
+input UserCountOrderByAggregateInput {
+  createdAt: SortOrder
+  email: SortOrder
+  id: SortOrder
+  name: SortOrder
+  password: SortOrder
+  phoneNumber: SortOrder
+  roleType: SortOrder
+  updatedAt: SortOrder
+  userRoleId: SortOrder
+  userStatus: SortOrder
+}
+
+input UserCreateInput {
+  comments: CommentCreateNestedManyWithoutUserInput
+  createdAt: DateTime
+  email: String!
+  likes: LikeCreateNestedManyWithoutUserInput
+  name: String!
+  password: String!
+  phoneNumber: String
+  role: RoleCreateNestedOneWithoutUserInput!
+  roleType: RoleTypes
+  updatedAt: DateTime
+  userStatus: String
+}
+
+input UserCreateManyInput {
+  createdAt: DateTime
+  email: String!
+  id: Int
+  name: String!
+  password: String!
+  phoneNumber: String
+  roleType: RoleTypes
+  updatedAt: DateTime
+  userRoleId: Int!
+  userStatus: String
+}
+
+input UserCreateManyRoleInput {
+  createdAt: DateTime
+  email: String!
+  id: Int
+  name: String!
+  password: String!
+  phoneNumber: String
+  roleType: RoleTypes
+  updatedAt: DateTime
+  userStatus: String
+}
+
+input UserCreateManyRoleInputEnvelope {
+  data: [UserCreateManyRoleInput!]!
+  skipDuplicates: Boolean
+}
+
+input UserCreateNestedManyWithoutRoleInput {
+  connect: [UserWhereUniqueInput!]
+  connectOrCreate: [UserCreateOrConnectWithoutRoleInput!]
+  create: [UserCreateWithoutRoleInput!]
+  createMany: UserCreateManyRoleInputEnvelope
+}
+
+input UserCreateNestedOneWithoutCommentsInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutCommentsInput
+  create: UserCreateWithoutCommentsInput
+}
+
+input UserCreateNestedOneWithoutLikesInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutLikesInput
+  create: UserCreateWithoutLikesInput
+}
+
+input UserCreateOrConnectWithoutCommentsInput {
+  create: UserCreateWithoutCommentsInput!
+  where: UserWhereUniqueInput!
+}
+
+input UserCreateOrConnectWithoutLikesInput {
+  create: UserCreateWithoutLikesInput!
+  where: UserWhereUniqueInput!
+}
+
+input UserCreateOrConnectWithoutRoleInput {
+  create: UserCreateWithoutRoleInput!
+  where: UserWhereUniqueInput!
+}
+
+input UserCreateWithoutCommentsInput {
+  createdAt: DateTime
+  email: String!
+  likes: LikeCreateNestedManyWithoutUserInput
+  name: String!
+  password: String!
+  phoneNumber: String
+  role: RoleCreateNestedOneWithoutUserInput!
+  roleType: RoleTypes
+  updatedAt: DateTime
+  userStatus: String
+}
+
+input UserCreateWithoutLikesInput {
+  comments: CommentCreateNestedManyWithoutUserInput
+  createdAt: DateTime
+  email: String!
+  name: String!
+  password: String!
+  phoneNumber: String
+  role: RoleCreateNestedOneWithoutUserInput!
+  roleType: RoleTypes
+  updatedAt: DateTime
+  userStatus: String
+}
+
+input UserCreateWithoutRoleInput {
+  comments: CommentCreateNestedManyWithoutUserInput
+  createdAt: DateTime
+  email: String!
+  likes: LikeCreateNestedManyWithoutUserInput
+  name: String!
+  password: String!
+  phoneNumber: String
+  roleType: RoleTypes
+  updatedAt: DateTime
+  userStatus: String
+}
+
+type UserGroupBy {
+  _avg: UserAvgAggregate
+  _count: UserCountAggregate
+  _max: UserMaxAggregate
+  _min: UserMinAggregate
+  _sum: UserSumAggregate
+  createdAt: DateTime!
+  email: String!
+  id: Int!
+  name: String!
+  password: String!
+  phoneNumber: String
+  roleType: RoleTypes
+  updatedAt: DateTime!
+  userRoleId: Int!
+  userStatus: String!
+}
+
+input UserListRelationFilter {
+  every: UserWhereInput
+  none: UserWhereInput
+  some: UserWhereInput
+}
+
+type UserMaxAggregate {
+  createdAt: DateTime
+  email: String
+  id: Int
+  name: String
+  password: String
+  phoneNumber: String
+  roleType: RoleTypes
+  updatedAt: DateTime
+  userRoleId: Int
+  userStatus: String
+}
+
+input UserMaxAggregateInput {
+  createdAt: Boolean
+  email: Boolean
+  id: Boolean
+  name: Boolean
+  password: Boolean
+  phoneNumber: Boolean
+  roleType: Boolean
+  updatedAt: Boolean
+  userRoleId: Boolean
+  userStatus: Boolean
+}
+
+input UserMaxOrderByAggregateInput {
+  createdAt: SortOrder
+  email: SortOrder
+  id: SortOrder
+  name: SortOrder
+  password: SortOrder
+  phoneNumber: SortOrder
+  roleType: SortOrder
+  updatedAt: SortOrder
+  userRoleId: SortOrder
+  userStatus: SortOrder
+}
+
+type UserMinAggregate {
+  createdAt: DateTime
+  email: String
+  id: Int
+  name: String
+  password: String
+  phoneNumber: String
+  roleType: RoleTypes
+  updatedAt: DateTime
+  userRoleId: Int
+  userStatus: String
+}
+
+input UserMinAggregateInput {
+  createdAt: Boolean
+  email: Boolean
+  id: Boolean
+  name: Boolean
+  password: Boolean
+  phoneNumber: Boolean
+  roleType: Boolean
+  updatedAt: Boolean
+  userRoleId: Boolean
+  userStatus: Boolean
+}
+
+input UserMinOrderByAggregateInput {
+  createdAt: SortOrder
+  email: SortOrder
+  id: SortOrder
+  name: SortOrder
+  password: SortOrder
+  phoneNumber: SortOrder
+  roleType: SortOrder
+  updatedAt: SortOrder
+  userRoleId: SortOrder
+  userStatus: SortOrder
+}
+
+input UserOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input UserOrderByWithAggregationInput {
+  _avg: UserAvgOrderByAggregateInput
+  _count: UserCountOrderByAggregateInput
+  _max: UserMaxOrderByAggregateInput
+  _min: UserMinOrderByAggregateInput
+  _sum: UserSumOrderByAggregateInput
+  createdAt: SortOrder
+  email: SortOrder
+  id: SortOrder
+  name: SortOrder
+  password: SortOrder
+  phoneNumber: SortOrderInput
+  roleType: SortOrderInput
+  updatedAt: SortOrder
+  userRoleId: SortOrder
+  userStatus: SortOrder
+}
+
+input UserOrderByWithRelationInput {
+  comments: CommentOrderByRelationAggregateInput
+  createdAt: SortOrder
+  email: SortOrder
+  id: SortOrder
+  likes: LikeOrderByRelationAggregateInput
+  name: SortOrder
+  password: SortOrder
+  phoneNumber: SortOrderInput
+  role: RoleOrderByWithRelationInput
+  roleType: SortOrderInput
+  updatedAt: SortOrder
+  userRoleId: SortOrder
+  userStatus: SortOrder
+}
+
+input UserRelationFilter {
+  is: UserWhereInput
+  isNot: UserWhereInput
+}
+
+enum UserScalarFieldEnum {
+  createdAt
+  email
+  id
+  name
+  password
+  phoneNumber
+  roleType
+  updatedAt
+  userRoleId
+  userStatus
+}
+
+input UserScalarWhereInput {
+  AND: [UserScalarWhereInput!]
+  NOT: [UserScalarWhereInput!]
+  OR: [UserScalarWhereInput!]
+  createdAt: DateTimeFilter
+  email: StringFilter
+  id: IntFilter
+  name: StringFilter
+  password: StringFilter
+  phoneNumber: StringNullableFilter
+  roleType: EnumRoleTypesNullableFilter
+  updatedAt: DateTimeFilter
+  userRoleId: IntFilter
+  userStatus: StringFilter
+}
+
+input UserScalarWhereWithAggregatesInput {
+  AND: [UserScalarWhereWithAggregatesInput!]
+  NOT: [UserScalarWhereWithAggregatesInput!]
+  OR: [UserScalarWhereWithAggregatesInput!]
+  createdAt: DateTimeWithAggregatesFilter
+  email: StringWithAggregatesFilter
+  id: IntWithAggregatesFilter
+  name: StringWithAggregatesFilter
+  password: StringWithAggregatesFilter
+  phoneNumber: StringNullableWithAggregatesFilter
+  roleType: EnumRoleTypesNullableWithAggregatesFilter
+  updatedAt: DateTimeWithAggregatesFilter
+  userRoleId: IntWithAggregatesFilter
+  userStatus: StringWithAggregatesFilter
+}
+
+type UserSumAggregate {
+  id: Int
+  userRoleId: Int
+}
+
+input UserSumAggregateInput {
+  id: Boolean
+  userRoleId: Boolean
+}
+
+input UserSumOrderByAggregateInput {
+  id: SortOrder
+  userRoleId: SortOrder
+}
+
+input UserUpdateInput {
+  comments: CommentUpdateManyWithoutUserNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  email: StringFieldUpdateOperationsInput
+  likes: LikeUpdateManyWithoutUserNestedInput
+  name: StringFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+  phoneNumber: NullableStringFieldUpdateOperationsInput
+  role: RoleUpdateOneRequiredWithoutUserNestedInput
+  roleType: NullableEnumRoleTypesFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  userStatus: StringFieldUpdateOperationsInput
+}
+
+input UserUpdateManyMutationInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  email: StringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+  phoneNumber: NullableStringFieldUpdateOperationsInput
+  roleType: NullableEnumRoleTypesFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  userStatus: StringFieldUpdateOperationsInput
+}
+
+input UserUpdateManyWithWhereWithoutRoleInput {
+  data: UserUpdateManyMutationInput!
+  where: UserScalarWhereInput!
+}
+
+input UserUpdateManyWithoutRoleNestedInput {
+  connect: [UserWhereUniqueInput!]
+  connectOrCreate: [UserCreateOrConnectWithoutRoleInput!]
+  create: [UserCreateWithoutRoleInput!]
+  createMany: UserCreateManyRoleInputEnvelope
+  delete: [UserWhereUniqueInput!]
+  deleteMany: [UserScalarWhereInput!]
+  disconnect: [UserWhereUniqueInput!]
+  set: [UserWhereUniqueInput!]
+  update: [UserUpdateWithWhereUniqueWithoutRoleInput!]
+  updateMany: [UserUpdateManyWithWhereWithoutRoleInput!]
+  upsert: [UserUpsertWithWhereUniqueWithoutRoleInput!]
+}
+
+input UserUpdateOneRequiredWithoutCommentsNestedInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutCommentsInput
+  create: UserCreateWithoutCommentsInput
+  update: UserUpdateToOneWithWhereWithoutCommentsInput
+  upsert: UserUpsertWithoutCommentsInput
+}
+
+input UserUpdateOneRequiredWithoutLikesNestedInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutLikesInput
+  create: UserCreateWithoutLikesInput
+  update: UserUpdateToOneWithWhereWithoutLikesInput
+  upsert: UserUpsertWithoutLikesInput
+}
+
+input UserUpdateToOneWithWhereWithoutCommentsInput {
+  data: UserUpdateWithoutCommentsInput!
+  where: UserWhereInput
+}
+
+input UserUpdateToOneWithWhereWithoutLikesInput {
+  data: UserUpdateWithoutLikesInput!
+  where: UserWhereInput
+}
+
+input UserUpdateWithWhereUniqueWithoutRoleInput {
+  data: UserUpdateWithoutRoleInput!
+  where: UserWhereUniqueInput!
+}
+
+input UserUpdateWithoutCommentsInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  email: StringFieldUpdateOperationsInput
+  likes: LikeUpdateManyWithoutUserNestedInput
+  name: StringFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+  phoneNumber: NullableStringFieldUpdateOperationsInput
+  role: RoleUpdateOneRequiredWithoutUserNestedInput
+  roleType: NullableEnumRoleTypesFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  userStatus: StringFieldUpdateOperationsInput
+}
+
+input UserUpdateWithoutLikesInput {
+  comments: CommentUpdateManyWithoutUserNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  email: StringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+  phoneNumber: NullableStringFieldUpdateOperationsInput
+  role: RoleUpdateOneRequiredWithoutUserNestedInput
+  roleType: NullableEnumRoleTypesFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  userStatus: StringFieldUpdateOperationsInput
+}
+
+input UserUpdateWithoutRoleInput {
+  comments: CommentUpdateManyWithoutUserNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  email: StringFieldUpdateOperationsInput
+  likes: LikeUpdateManyWithoutUserNestedInput
+  name: StringFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+  phoneNumber: NullableStringFieldUpdateOperationsInput
+  roleType: NullableEnumRoleTypesFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  userStatus: StringFieldUpdateOperationsInput
+}
+
+input UserUpsertWithWhereUniqueWithoutRoleInput {
+  create: UserCreateWithoutRoleInput!
+  update: UserUpdateWithoutRoleInput!
+  where: UserWhereUniqueInput!
+}
+
+input UserUpsertWithoutCommentsInput {
+  create: UserCreateWithoutCommentsInput!
+  update: UserUpdateWithoutCommentsInput!
+  where: UserWhereInput
+}
+
+input UserUpsertWithoutLikesInput {
+  create: UserCreateWithoutLikesInput!
+  update: UserUpdateWithoutLikesInput!
+  where: UserWhereInput
+}
+
+input UserWhereInput {
+  AND: [UserWhereInput!]
+  NOT: [UserWhereInput!]
+  OR: [UserWhereInput!]
+  comments: CommentListRelationFilter
+  createdAt: DateTimeFilter
+  email: StringFilter
+  id: IntFilter
+  likes: LikeListRelationFilter
+  name: StringFilter
+  password: StringFilter
+  phoneNumber: StringNullableFilter
+  role: RoleRelationFilter
+  roleType: EnumRoleTypesNullableFilter
+  updatedAt: DateTimeFilter
+  userRoleId: IntFilter
+  userStatus: StringFilter
+}
+
+input UserWhereUniqueInput {
+  AND: [UserWhereInput!]
+  NOT: [UserWhereInput!]
+  OR: [UserWhereInput!]
+  comments: CommentListRelationFilter
+  createdAt: DateTimeFilter
+  email: String
+  id: Int
+  likes: LikeListRelationFilter
+  name: StringFilter
+  password: StringFilter
+  phoneNumber: StringNullableFilter
+  role: RoleRelationFilter
+  roleType: EnumRoleTypesNullableFilter
+  updatedAt: DateTimeFilter
+  userRoleId: IntFilter
+  userStatus: StringFilter
+}

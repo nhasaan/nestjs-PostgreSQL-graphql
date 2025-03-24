@@ -3,17 +3,16 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { join } from 'path';
 import { GraphqlApiModule } from './modules/graphql-api/graphql-api.module';
-import { SharedModule } from './shared/shared.module';
+import { SharedModule } from '@shared/shared.module';
+import { createApolloConfig } from './modules/graphql-api/graphql.config';
 
 @Module({
   imports: [
+    // Use the factory function to create Apollo config with driver
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      autoSchemaFile: join(process.cwd(), 'src/schema.graphql'),
-      playground:true,
-      context: ({ req }) => ({ request: req }),
+      ...createApolloConfig(),
     }),
     GraphqlApiModule,
     SharedModule,

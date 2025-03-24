@@ -1,4 +1,4 @@
-import { UserService } from 'src/shared/services/user.service';
+import { UserService } from '@shared/services/user.service';
 import { GqlJWTGuard } from './gql-jwt.guard';
 
 describe('GqlJWTGuard', () => {
