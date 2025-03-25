@@ -28,5 +28,5 @@ export class FindFirstCategoryOrThrowArgs {
     skip?: number;
 
     @Field(() => [CategoryScalarFieldEnum], {nullable:true})
-    distinct?: Array<keyof typeof CategoryScalarFieldEnum>;
+    distinct?: Array<`${CategoryScalarFieldEnum}`>;
 }

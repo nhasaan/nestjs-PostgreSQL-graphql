@@ -6,8 +6,8 @@ import { Operation } from '../prisma/operation.enum';
 export class PermissionUpdateallowedOperationsInput {
 
     @Field(() => [Operation], {nullable:true})
-    set?: Array<keyof typeof Operation>;
+    set?: Array<`${Operation}`>;
 
     @Field(() => [Operation], {nullable:true})
-    push?: Array<keyof typeof Operation>;
+    push?: Array<`${Operation}`>;
 }

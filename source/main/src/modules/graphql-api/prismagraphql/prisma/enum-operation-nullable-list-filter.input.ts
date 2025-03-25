@@ -6,16 +6,16 @@ import { Operation } from './operation.enum';
 export class EnumOperationNullableListFilter {
 
     @Field(() => [Operation], {nullable:true})
-    equals?: Array<keyof typeof Operation>;
+    equals?: Array<`${Operation}`>;
 
     @Field(() => Operation, {nullable:true})
-    has?: keyof typeof Operation;
+    has?: `${Operation}`;
 
     @Field(() => [Operation], {nullable:true})
-    hasEvery?: Array<keyof typeof Operation>;
+    hasEvery?: Array<`${Operation}`>;
 
     @Field(() => [Operation], {nullable:true})
-    hasSome?: Array<keyof typeof Operation>;
+    hasSome?: Array<`${Operation}`>;
 
     @Field(() => Boolean, {nullable:true})
     isEmpty?: boolean;

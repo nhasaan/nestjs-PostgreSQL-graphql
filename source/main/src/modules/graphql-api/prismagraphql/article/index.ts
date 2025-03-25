@@ -37,6 +37,7 @@ export { ArticleOrderByWithAggregationInput } from './article-order-by-with-aggr
 export { ArticleOrderByWithRelationInput } from './article-order-by-with-relation.input';
 export { ArticleRelationFilter } from './article-relation-filter.input';
 export { ArticleScalarFieldEnum } from './article-scalar-field.enum';
+export { ArticleScalarRelationFilter } from './article-scalar-relation-filter.input';
 export { ArticleScalarWhereWithAggregatesInput } from './article-scalar-where-with-aggregates.input';
 export { ArticleScalarWhereInput } from './article-scalar-where.input';
 export { ArticleSumAggregateInput } from './article-sum-aggregate.input';

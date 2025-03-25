@@ -12,22 +12,22 @@ import { UserSumOrderByAggregateInput } from './user-sum-order-by-aggregate.inpu
 export class UserOrderByWithAggregationInput {
 
     @Field(() => SortOrder, {nullable:true})
-    id?: keyof typeof SortOrder;
+    id?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    email?: keyof typeof SortOrder;
+    email?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    name?: keyof typeof SortOrder;
+    name?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    password?: keyof typeof SortOrder;
+    password?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    userRoleId?: keyof typeof SortOrder;
+    userRoleId?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    userStatus?: keyof typeof SortOrder;
+    userStatus?: `${SortOrder}`;
 
     @Field(() => SortOrderInput, {nullable:true})
     roleType?: SortOrderInput;
@@ -36,10 +36,10 @@ export class UserOrderByWithAggregationInput {
     phoneNumber?: SortOrderInput;
 
     @Field(() => SortOrder, {nullable:true})
-    createdAt?: keyof typeof SortOrder;
+    createdAt?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    updatedAt?: keyof typeof SortOrder;
+    updatedAt?: `${SortOrder}`;
 
     @Field(() => UserCountOrderByAggregateInput, {nullable:true})
     _count?: UserCountOrderByAggregateInput;

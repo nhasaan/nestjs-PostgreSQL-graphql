@@ -26,11 +26,11 @@ export class User {
     @Field(() => Int, {nullable:false})
     userRoleId!: number;
 
-    @Field(() => String, {nullable:false,defaultValue:'Active'})
+    @Field(() => String, {defaultValue:'Active',nullable:false})
     userStatus!: string;
 
     @Field(() => RoleTypes, {nullable:true})
-    roleType!: keyof typeof RoleTypes | null;
+    roleType!: `${RoleTypes}` | null;
 
     @Field(() => String, {nullable:true})
     phoneNumber!: string | null;

@@ -20,7 +20,7 @@ export class UserCreateWithoutLikesInput {
     userStatus?: string;
 
     @Field(() => RoleTypes, {nullable:true})
-    roleType?: keyof typeof RoleTypes;
+    roleType?: `${RoleTypes}`;
 
     @Field(() => String, {nullable:true})
     phoneNumber?: string;

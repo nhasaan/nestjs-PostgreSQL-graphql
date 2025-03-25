@@ -7,19 +7,19 @@ import { ArticleOrderByWithRelationInput } from '../article/article-order-by-wit
 export class ArticleImageOrderByWithRelationInput {
 
     @Field(() => SortOrder, {nullable:true})
-    id?: keyof typeof SortOrder;
+    id?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    articleId?: keyof typeof SortOrder;
+    articleId?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    imageUrl?: keyof typeof SortOrder;
+    imageUrl?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    createdAt?: keyof typeof SortOrder;
+    createdAt?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    updatedAt?: keyof typeof SortOrder;
+    updatedAt?: `${SortOrder}`;
 
     @Field(() => ArticleOrderByWithRelationInput, {nullable:true})
     article?: ArticleOrderByWithRelationInput;

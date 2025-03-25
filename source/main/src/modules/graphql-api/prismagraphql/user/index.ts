@@ -46,6 +46,7 @@ export { UserOrderByWithAggregationInput } from './user-order-by-with-aggregatio
 export { UserOrderByWithRelationInput } from './user-order-by-with-relation.input';
 export { UserRelationFilter } from './user-relation-filter.input';
 export { UserScalarFieldEnum } from './user-scalar-field.enum';
+export { UserScalarRelationFilter } from './user-scalar-relation-filter.input';
 export { UserScalarWhereWithAggregatesInput } from './user-scalar-where-with-aggregates.input';
 export { UserScalarWhereInput } from './user-scalar-where.input';
 export { UserSumAggregateInput } from './user-sum-aggregate.input';

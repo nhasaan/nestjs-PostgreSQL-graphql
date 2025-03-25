@@ -13,7 +13,7 @@ export class RoleCreateManyInput {
     name!: string;
 
     @Field(() => RoleTypes, {nullable:false})
-    roleType!: keyof typeof RoleTypes;
+    roleType!: `${RoleTypes}`;
 
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;

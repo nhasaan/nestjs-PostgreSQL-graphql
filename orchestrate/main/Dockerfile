@@ -41,6 +41,8 @@ RUN mkdir -p ${COMMON_WORK_DIR} ${COMMON_WORK_DIR}/bin /.npm /.config /.cache/ya
     touch /.yarnrc && \
     chown -R ${USER_ID}:0 ${COMMON_WORK_DIR} "/.npm" "/.config" "/.cache/" "/.yarn" "/.yarnrc"
 
+RUN apk add --no-cache openssl openssl-dev
+
 USER ${USER_ID}
 
 WORKDIR ${WORK_DIR}
@@ -52,9 +54,9 @@ COPY --chown=${USER_ID}:0 ${SOURCE_DIR}/package*.json ${SOURCE_DIR}/*.lock ${WOR
 RUN yarn config set proxy "${HTTP_PROXY:-}" && \
     yarn config set https-proxy "${HTTPS_PROXY:-}" && \
     if [ "${NODE_ENV}" = "development" ]; then \
-        yarn install --frozen-lockfile; \
+    yarn install --frozen-lockfile; \
     else \
-        yarn install --frozen-lockfile; \
+    yarn install --frozen-lockfile; \
     fi
 RUN yarn cache clean
 

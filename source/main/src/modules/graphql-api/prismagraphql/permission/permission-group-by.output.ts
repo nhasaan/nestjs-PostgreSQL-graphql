@@ -18,7 +18,7 @@ export class PermissionGroupBy {
     modelName!: string;
 
     @Field(() => [Operation], {nullable:true})
-    allowedOperations?: Array<keyof typeof Operation>;
+    allowedOperations?: Array<`${Operation}`>;
 
     @Field(() => Int, {nullable:false})
     rolePermissionsId!: number;

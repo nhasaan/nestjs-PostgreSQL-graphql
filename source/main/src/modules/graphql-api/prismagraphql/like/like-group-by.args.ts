@@ -23,7 +23,7 @@ export class LikeGroupByArgs {
     orderBy?: Array<LikeOrderByWithAggregationInput>;
 
     @Field(() => [LikeScalarFieldEnum], {nullable:false})
-    by!: Array<keyof typeof LikeScalarFieldEnum>;
+    by!: Array<`${LikeScalarFieldEnum}`>;
 
     @Field(() => LikeScalarWhereWithAggregatesInput, {nullable:true})
     having?: LikeScalarWhereWithAggregatesInput;

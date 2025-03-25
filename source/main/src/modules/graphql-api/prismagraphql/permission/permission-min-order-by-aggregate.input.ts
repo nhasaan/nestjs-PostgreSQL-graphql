@@ -6,17 +6,17 @@ import { SortOrder } from '../prisma/sort-order.enum';
 export class PermissionMinOrderByAggregateInput {
 
     @Field(() => SortOrder, {nullable:true})
-    id?: keyof typeof SortOrder;
+    id?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    modelName?: keyof typeof SortOrder;
+    modelName?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    rolePermissionsId?: keyof typeof SortOrder;
+    rolePermissionsId?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    createdAt?: keyof typeof SortOrder;
+    createdAt?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    updatedAt?: keyof typeof SortOrder;
+    updatedAt?: `${SortOrder}`;
 }

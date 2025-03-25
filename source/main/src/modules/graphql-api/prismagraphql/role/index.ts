@@ -36,6 +36,7 @@ export { RoleOrderByWithAggregationInput } from './role-order-by-with-aggregatio
 export { RoleOrderByWithRelationInput } from './role-order-by-with-relation.input';
 export { RoleRelationFilter } from './role-relation-filter.input';
 export { RoleScalarFieldEnum } from './role-scalar-field.enum';
+export { RoleScalarRelationFilter } from './role-scalar-relation-filter.input';
 export { RoleScalarWhereWithAggregatesInput } from './role-scalar-where-with-aggregates.input';
 export { RoleSumAggregateInput } from './role-sum-aggregate.input';
 export { RoleSumAggregate } from './role-sum-aggregate.output';

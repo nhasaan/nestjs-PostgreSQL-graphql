@@ -11,19 +11,19 @@ import { RoleSumOrderByAggregateInput } from './role-sum-order-by-aggregate.inpu
 export class RoleOrderByWithAggregationInput {
 
     @Field(() => SortOrder, {nullable:true})
-    id?: keyof typeof SortOrder;
+    id?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    name?: keyof typeof SortOrder;
+    name?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    roleType?: keyof typeof SortOrder;
+    roleType?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    createdAt?: keyof typeof SortOrder;
+    createdAt?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    updatedAt?: keyof typeof SortOrder;
+    updatedAt?: `${SortOrder}`;
 
     @Field(() => RoleCountOrderByAggregateInput, {nullable:true})
     _count?: RoleCountOrderByAggregateInput;

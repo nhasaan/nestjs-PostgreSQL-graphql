@@ -6,5 +6,5 @@ import { SortOrder } from '../prisma/sort-order.enum';
 export class PermissionOrderByRelationAggregateInput {
 
     @Field(() => SortOrder, {nullable:true})
-    _count?: keyof typeof SortOrder;
+    _count?: `${SortOrder}`;
 }

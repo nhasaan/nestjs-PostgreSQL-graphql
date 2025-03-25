@@ -28,5 +28,5 @@ export class FindFirstRoleOrThrowArgs {
     skip?: number;
 
     @Field(() => [RoleScalarFieldEnum], {nullable:true})
-    distinct?: Array<keyof typeof RoleScalarFieldEnum>;
+    distinct?: Array<`${RoleScalarFieldEnum}`>;
 }

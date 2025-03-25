@@ -23,7 +23,7 @@ export class ArticleImageGroupByArgs {
     orderBy?: Array<ArticleImageOrderByWithAggregationInput>;
 
     @Field(() => [ArticleImageScalarFieldEnum], {nullable:false})
-    by!: Array<keyof typeof ArticleImageScalarFieldEnum>;
+    by!: Array<`${ArticleImageScalarFieldEnum}`>;
 
     @Field(() => ArticleImageScalarWhereWithAggregatesInput, {nullable:true})
     having?: ArticleImageScalarWhereWithAggregatesInput;

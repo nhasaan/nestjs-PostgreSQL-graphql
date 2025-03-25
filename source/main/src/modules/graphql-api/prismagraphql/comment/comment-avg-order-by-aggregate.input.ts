@@ -6,11 +6,11 @@ import { SortOrder } from '../prisma/sort-order.enum';
 export class CommentAvgOrderByAggregateInput {
 
     @Field(() => SortOrder, {nullable:true})
-    id?: keyof typeof SortOrder;
+    id?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    articleId?: keyof typeof SortOrder;
+    articleId?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    userId?: keyof typeof SortOrder;
+    userId?: `${SortOrder}`;
 }

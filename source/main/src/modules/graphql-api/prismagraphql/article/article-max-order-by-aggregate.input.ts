@@ -6,26 +6,26 @@ import { SortOrder } from '../prisma/sort-order.enum';
 export class ArticleMaxOrderByAggregateInput {
 
     @Field(() => SortOrder, {nullable:true})
-    id?: keyof typeof SortOrder;
+    id?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    title?: keyof typeof SortOrder;
+    title?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    url?: keyof typeof SortOrder;
+    url?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    content?: keyof typeof SortOrder;
+    content?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    views?: keyof typeof SortOrder;
+    views?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    categoryId?: keyof typeof SortOrder;
+    categoryId?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    createdAt?: keyof typeof SortOrder;
+    createdAt?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    updatedAt?: keyof typeof SortOrder;
+    updatedAt?: `${SortOrder}`;
 }

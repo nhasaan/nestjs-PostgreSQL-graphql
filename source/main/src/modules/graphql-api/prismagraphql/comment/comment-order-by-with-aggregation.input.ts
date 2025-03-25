@@ -11,22 +11,22 @@ import { CommentSumOrderByAggregateInput } from './comment-sum-order-by-aggregat
 export class CommentOrderByWithAggregationInput {
 
     @Field(() => SortOrder, {nullable:true})
-    id?: keyof typeof SortOrder;
+    id?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    text?: keyof typeof SortOrder;
+    text?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    articleId?: keyof typeof SortOrder;
+    articleId?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    userId?: keyof typeof SortOrder;
+    userId?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    createdAt?: keyof typeof SortOrder;
+    createdAt?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    updatedAt?: keyof typeof SortOrder;
+    updatedAt?: `${SortOrder}`;
 
     @Field(() => CommentCountOrderByAggregateInput, {nullable:true})
     _count?: CommentCountOrderByAggregateInput;

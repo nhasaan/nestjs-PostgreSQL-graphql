@@ -7,13 +7,13 @@ import { NestedEnumRoleTypesFilter } from './nested-enum-role-types-filter.input
 export class EnumRoleTypesFilter {
 
     @Field(() => RoleTypes, {nullable:true})
-    equals?: keyof typeof RoleTypes;
+    equals?: `${RoleTypes}`;
 
     @Field(() => [RoleTypes], {nullable:true})
-    in?: Array<keyof typeof RoleTypes>;
+    in?: Array<`${RoleTypes}`>;
 
     @Field(() => [RoleTypes], {nullable:true})
-    notIn?: Array<keyof typeof RoleTypes>;
+    notIn?: Array<`${RoleTypes}`>;
 
     @Field(() => NestedEnumRoleTypesFilter, {nullable:true})
     not?: NestedEnumRoleTypesFilter;

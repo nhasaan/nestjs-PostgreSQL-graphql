@@ -18,7 +18,7 @@ services:
   app:
     container_name: nestjs-fastify-gql-api
     build:
-      context: ${DOCKER_BUILD_CONTEXT_DIR:-../../}
+      context: ${DOCKER_BUILD_CONTEXT_DIR:-../}
       dockerfile: orchestrate/main/Dockerfile
       args:
         - APP_PORT=${APP_PORT:-3100}
@@ -32,7 +32,7 @@ services:
       - ${HOST_PORT:-3100}:${APP_PORT:-3100}
     volumes:
       - /app/source/node_modules
-      - ${DOCKER_VOLUME_APP_ROOT_DIR:-../../source/main}:/app/source
+      - ${DOCKER_VOLUME_APP_ROOT_DIR:-../source/main}:/app/source
     env_file:
       - .env
     user: "5001" # Run the container with user 5001

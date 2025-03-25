@@ -23,7 +23,7 @@ export class CategoryGroupByArgs {
     orderBy?: Array<CategoryOrderByWithAggregationInput>;
 
     @Field(() => [CategoryScalarFieldEnum], {nullable:false})
-    by!: Array<keyof typeof CategoryScalarFieldEnum>;
+    by!: Array<`${CategoryScalarFieldEnum}`>;
 
     @Field(() => CategoryScalarWhereWithAggregatesInput, {nullable:true})
     having?: CategoryScalarWhereWithAggregatesInput;

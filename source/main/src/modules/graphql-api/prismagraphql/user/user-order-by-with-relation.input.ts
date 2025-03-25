@@ -10,22 +10,22 @@ import { LikeOrderByRelationAggregateInput } from '../like/like-order-by-relatio
 export class UserOrderByWithRelationInput {
 
     @Field(() => SortOrder, {nullable:true})
-    id?: keyof typeof SortOrder;
+    id?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    email?: keyof typeof SortOrder;
+    email?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    name?: keyof typeof SortOrder;
+    name?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    password?: keyof typeof SortOrder;
+    password?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    userRoleId?: keyof typeof SortOrder;
+    userRoleId?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    userStatus?: keyof typeof SortOrder;
+    userStatus?: `${SortOrder}`;
 
     @Field(() => SortOrderInput, {nullable:true})
     roleType?: SortOrderInput;
@@ -34,10 +34,10 @@ export class UserOrderByWithRelationInput {
     phoneNumber?: SortOrderInput;
 
     @Field(() => SortOrder, {nullable:true})
-    createdAt?: keyof typeof SortOrder;
+    createdAt?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    updatedAt?: keyof typeof SortOrder;
+    updatedAt?: `${SortOrder}`;
 
     @Field(() => RoleOrderByWithRelationInput, {nullable:true})
     role?: RoleOrderByWithRelationInput;

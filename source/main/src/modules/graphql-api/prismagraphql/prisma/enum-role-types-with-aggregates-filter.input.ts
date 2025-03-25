@@ -9,13 +9,13 @@ import { NestedEnumRoleTypesFilter } from './nested-enum-role-types-filter.input
 export class EnumRoleTypesWithAggregatesFilter {
 
     @Field(() => RoleTypes, {nullable:true})
-    equals?: keyof typeof RoleTypes;
+    equals?: `${RoleTypes}`;
 
     @Field(() => [RoleTypes], {nullable:true})
-    in?: Array<keyof typeof RoleTypes>;
+    in?: Array<`${RoleTypes}`>;
 
     @Field(() => [RoleTypes], {nullable:true})
-    notIn?: Array<keyof typeof RoleTypes>;
+    notIn?: Array<`${RoleTypes}`>;
 
     @Field(() => NestedEnumRoleTypesWithAggregatesFilter, {nullable:true})
     not?: NestedEnumRoleTypesWithAggregatesFilter;

@@ -16,7 +16,7 @@ export class Role {
     name!: string;
 
     @Field(() => RoleTypes, {nullable:false})
-    roleType!: keyof typeof RoleTypes;
+    roleType!: `${RoleTypes}`;
 
     @Field(() => Date, {nullable:false})
     createdAt!: Date;

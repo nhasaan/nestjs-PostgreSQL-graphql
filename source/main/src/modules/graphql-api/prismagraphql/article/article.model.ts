@@ -23,7 +23,7 @@ export class Article {
     @Field(() => String, {nullable:false})
     content!: string;
 
-    @Field(() => Int, {nullable:false,defaultValue:0})
+    @Field(() => Int, {defaultValue:0,nullable:false})
     views!: number;
 
     @Field(() => Int, {nullable:false})

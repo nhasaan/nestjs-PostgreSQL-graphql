@@ -28,5 +28,5 @@ export class FindManyArticleImageArgs {
     skip?: number;
 
     @Field(() => [ArticleImageScalarFieldEnum], {nullable:true})
-    distinct?: Array<keyof typeof ArticleImageScalarFieldEnum>;
+    distinct?: Array<`${ArticleImageScalarFieldEnum}`>;
 }

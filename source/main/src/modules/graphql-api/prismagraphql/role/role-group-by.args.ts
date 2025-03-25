@@ -23,7 +23,7 @@ export class RoleGroupByArgs {
     orderBy?: Array<RoleOrderByWithAggregationInput>;
 
     @Field(() => [RoleScalarFieldEnum], {nullable:false})
-    by!: Array<keyof typeof RoleScalarFieldEnum>;
+    by!: Array<`${RoleScalarFieldEnum}`>;
 
     @Field(() => RoleScalarWhereWithAggregatesInput, {nullable:true})
     having?: RoleScalarWhereWithAggregatesInput;

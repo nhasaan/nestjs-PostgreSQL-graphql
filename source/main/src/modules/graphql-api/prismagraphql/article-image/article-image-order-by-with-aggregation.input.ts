@@ -11,19 +11,19 @@ import { ArticleImageSumOrderByAggregateInput } from './article-image-sum-order-
 export class ArticleImageOrderByWithAggregationInput {
 
     @Field(() => SortOrder, {nullable:true})
-    id?: keyof typeof SortOrder;
+    id?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    articleId?: keyof typeof SortOrder;
+    articleId?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    imageUrl?: keyof typeof SortOrder;
+    imageUrl?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    createdAt?: keyof typeof SortOrder;
+    createdAt?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    updatedAt?: keyof typeof SortOrder;
+    updatedAt?: `${SortOrder}`;
 
     @Field(() => ArticleImageCountOrderByAggregateInput, {nullable:true})
     _count?: ArticleImageCountOrderByAggregateInput;

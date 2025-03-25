@@ -7,16 +7,16 @@ import { ArticleOrderByRelationAggregateInput } from '../article/article-order-b
 export class CategoryOrderByWithRelationInput {
 
     @Field(() => SortOrder, {nullable:true})
-    id?: keyof typeof SortOrder;
+    id?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    name?: keyof typeof SortOrder;
+    name?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    createdAt?: keyof typeof SortOrder;
+    createdAt?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
-    updatedAt?: keyof typeof SortOrder;
+    updatedAt?: `${SortOrder}`;
 
     @Field(() => ArticleOrderByRelationAggregateInput, {nullable:true})
     articles?: ArticleOrderByRelationAggregateInput;

@@ -28,5 +28,5 @@ export class FindFirstPermissionOrThrowArgs {
     skip?: number;
 
     @Field(() => [PermissionScalarFieldEnum], {nullable:true})
-    distinct?: Array<keyof typeof PermissionScalarFieldEnum>;
+    distinct?: Array<`${PermissionScalarFieldEnum}`>;
 }

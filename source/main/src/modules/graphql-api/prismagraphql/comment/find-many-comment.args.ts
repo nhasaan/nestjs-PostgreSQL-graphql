@@ -28,5 +28,5 @@ export class FindManyCommentArgs {
     skip?: number;
 
     @Field(() => [CommentScalarFieldEnum], {nullable:true})
-    distinct?: Array<keyof typeof CommentScalarFieldEnum>;
+    distinct?: Array<`${CommentScalarFieldEnum}`>;
 }

@@ -24,6 +24,7 @@ export { CategoryOrderByWithAggregationInput } from './category-order-by-with-ag
 export { CategoryOrderByWithRelationInput } from './category-order-by-with-relation.input';
 export { CategoryRelationFilter } from './category-relation-filter.input';
 export { CategoryScalarFieldEnum } from './category-scalar-field.enum';
+export { CategoryScalarRelationFilter } from './category-scalar-relation-filter.input';
 export { CategoryScalarWhereWithAggregatesInput } from './category-scalar-where-with-aggregates.input';
 export { CategorySumAggregateInput } from './category-sum-aggregate.input';
 export { CategorySumAggregate } from './category-sum-aggregate.output';

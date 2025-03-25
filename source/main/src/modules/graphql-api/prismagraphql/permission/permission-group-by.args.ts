@@ -23,7 +23,7 @@ export class PermissionGroupByArgs {
     orderBy?: Array<PermissionOrderByWithAggregationInput>;
 
     @Field(() => [PermissionScalarFieldEnum], {nullable:false})
-    by!: Array<keyof typeof PermissionScalarFieldEnum>;
+    by!: Array<`${PermissionScalarFieldEnum}`>;
 
     @Field(() => PermissionScalarWhereWithAggregatesInput, {nullable:true})
     having?: PermissionScalarWhereWithAggregatesInput;

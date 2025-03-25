@@ -28,5 +28,5 @@ export class FindFirstLikeArgs {
     skip?: number;
 
     @Field(() => [LikeScalarFieldEnum], {nullable:true})
-    distinct?: Array<keyof typeof LikeScalarFieldEnum>;
+    distinct?: Array<`${LikeScalarFieldEnum}`>;
 }

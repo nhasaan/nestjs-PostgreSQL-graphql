@@ -6,5 +6,5 @@ import { Operation } from '../prisma/operation.enum';
 export class PermissionCreateallowedOperationsInput {
 
     @Field(() => [Operation], {nullable:false})
-    set!: Array<keyof typeof Operation>;
+    set!: Array<`${Operation}`>;
 }
